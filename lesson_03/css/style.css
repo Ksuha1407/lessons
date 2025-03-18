@@ -1,0 +1,143 @@
+@import url("reset.css");
+
+* {
+    color: red;
+}
+
+p {
+    color: blue;
+}
+
+h1 {
+    color: aqua;
+}
+
+h2 {
+    color: green;
+}
+
+.title {
+    color: rgb(242, 21, 21);
+}
+
+.text {
+    color: yellow;
+}
+
+#section-1 {
+    color: rgb(138, 43, 226);
+}
+
+[class*="te"] {
+    color: chartreuse;
+}
+
+[class*="subtitle-2"] {
+    color: rgb(224, 33, 192);
+}
+
+[title*="бота"] {
+    color: purple;
+}
+
+div.result {
+    color: rgb(25, 241, 83);
+}
+
+ul.list {
+    color: blue;
+}
+
+.text-list,
+.numblist,
+h1 {
+    color: red;
+}
+
+.content h1 {
+    color: green;
+}
+
+.content p {
+    color: red;
+}
+
+.container li {
+    color: yellow;
+}
+
+.content ol {
+    color: blue;
+}
+
+.content a {
+    color: aqua;
+}
+
+.navigation .list {
+    color: red;
+}
+
+.footer * {
+    color: blue;
+}
+
+.content>p {
+    color: rgb(51, 153, 73);
+}
+
+.subtitle~p {
+    color: red;
+}
+
+.subtitle-2~p {
+    color: green;
+}
+
+.subtitle+p {
+    color: rgb(28, 224, 84);
+}
+
+.content {
+    color: blue;
+}
+
+.content {
+    color: red;
+}
+
+.title {
+    color: blue;
+}
+
+[class*="titl"] {
+    color: red;
+}
+
+.blue {
+    color: yellow;
+}
+
+.text {
+    color: darkblue;
+}
+
+* {
+    color: red;
+}
+
+p {
+    color: blue;
+}
+
+.text {
+    color: green;
+}
+
+#section-1 {
+    color: rgb(29, 186, 239);
+}
+
+a.link {
+    color: red;
+}
