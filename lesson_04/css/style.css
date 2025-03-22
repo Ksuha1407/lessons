@@ -1,0 +1,103 @@
+@import url("reset.css");
+@import url("fonts.css");
+@import url('https://fonts.googleapis.com/css2?family=Carme&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: "Poppins", serif;
+    font-size: 14px;
+    font-weight: 400;
+    word-spacing: normal;
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.title {
+    font-size: 18px;
+}
+
+.title__header {
+    font-size: 48px;
+    font-style: italic;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+    color: blue;
+}
+
+.title__text {
+    font-size: 24px;
+    color: hsla(183, 97%, 54%, 0.667);
+}
+
+.history__header {
+    font-size: 36px;
+    font-weight: 500;
+    text-align: center;
+    color: green;
+    text-shadow: 3px 3px 3px rgba(13, 14, 14, 0.5);
+}
+
+.history__text {
+    font-size: 24px;
+    line-height: 1;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    color: #0de81f;
+}
+
+.population__header {
+    text-decoration: underline double red 3px;
+    color: brown;
+    text-transform: uppercase;
+}
+
+.population__text {
+    font-size: 24px;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: aqua;
+    text-decoration-style: wavy;
+    text-shadow: 2px 2px 1px rgba(143, 22, 22, 0.516);
+}
+
+.culture__header {
+    color: lightcoral;
+    font-style: oblique;
+}
+
+.culture__text {
+    font-size: 24px;
+    color: #0de81f;
+    text-align: center;
+    text-decoration-line: overline;
+    text-transform: lowercase;
+}
+
+.culture__list {
+    font-size: 24px;
+    line-height: 1.5;
+    color: blue;
+    text-shadow: 3px 2px 0.5px rgba(22, 91, 230, 0.444);
+}
+
+.footer__text {
+    text-align: center;
+    color: olive;
+}
+
+.new__title {
+    color: #1A1A1A;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.new__text {
+    color: #808080;
+    font-size: 18px;
+    line-height: 1.5;
+}
