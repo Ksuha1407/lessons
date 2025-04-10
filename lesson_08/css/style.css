@@ -1,0 +1,100 @@
+@import url("reset.css");
+@import url("fonts.css");
+
+
+.wrapper {
+    overflow: clip;
+    min-height: 100%;
+    background: #f68a8a;
+}
+
+.header {
+    background: linear-gradient(red, blue, green, yellow);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.header__container {
+    max-width: 1201px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.header__content {
+    text-align: center;
+}
+
+.header__text {
+    font-size: 48px;
+    font-weight: 700;
+    color: #FFF;
+    text-transform: uppercase;
+}
+
+.header__content p:hover {
+    color: #FE3F3F;
+}
+
+
+.page {
+    margin-bottom: 20px;
+}
+
+.container {
+    max-width: 1090px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.practice__block {
+    padding: 10px;
+}
+
+.practice__image {
+    background: #f1a7a7;
+    border-radius: 30px;
+    margin: 0 5px 20px;
+    padding: 20px;
+}
+
+.img__vector {
+    margin-right: 50px;
+    padding-left: 20px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+p {
+    font-size: 24px;
+    font-weight: 600;
+    color: #070505;
+    display: inline-block;
+}
+
+
+.picture {
+    border-radius: 150px 0 150px 0;
+    background: #f1a7a7;
+}
+
+
+.footer {
+    background: linear-gradient(red, blue, green, yellow);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.footer__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 15px;
+}
+
+.footer__content {
+    text-align: center;
+}
+
+.footer__content p {
+    font-size: 46px;
+    color: #FFF;
+}
