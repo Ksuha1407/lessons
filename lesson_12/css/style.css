@@ -495,12 +495,11 @@ body {
 .practice5__machine {
     background: url("../img/street.avif") center / 100% no-repeat;
     overflow: hidden;
-
+    min-height: 800px;
 }
 
 .practice5__content {
     position: relative;
-    min-height: 800px;
     animation: distance 5s linear 1s infinite alternate-reverse;
 }
 
@@ -511,7 +510,6 @@ body {
     height: 180px;
     border-radius: 40% 40% 0 0;
     background: #031d07;
-    /* position: relative; */
     position: absolute;
     top: 50%;
     left: 52%;
