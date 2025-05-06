@@ -308,8 +308,9 @@ body {
     background: #031d07;
     height: 26%;
     position: absolute;
-    top: 36%;
-    left: 35%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .practice8__body::before {
@@ -454,7 +455,7 @@ body {
     position: relative;
     height: 150px;
     bottom: -400px;
-    left: 450px;
+    left: 25%;
 }
 
 .weel {
