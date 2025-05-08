@@ -1,0 +1,265 @@
+@import url("reset.css");
+@import url("fonts.css");
+
+
+.wrapper {
+    overflow: clip;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper>main {
+    flex-grow: 1;
+}
+
+
+body {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+
+[class *="__container"] {
+    max-width: 1230px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.header {
+    background: linear-gradient(red, blue, green, yellow);
+    border-radius: 10px;
+    width: 100%;
+}
+
+
+.header__content {
+    font-size: 48px;
+    font-weight: 700;
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.header__content:hover {
+    color: #18bdf0;
+}
+
+
+.teachers {
+    background: #412672;
+    padding: 61px 0 102px;
+}
+
+
+
+
+.title-header {
+    color: #FFF;
+    font-size: 38px;
+    line-height: 1.2;
+    margin-bottom: 31px;
+}
+
+.title-header strong {
+    font-weight: 700;
+}
+
+
+.card {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
+
+.card__item {
+    max-width: 387px;
+    background: #FFF;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 320px;
+    gap: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.card__item:hover {
+    background-color: #FFBE48;
+}
+
+
+.card__title {
+    color: #000;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+
+
+.card__text {
+    color: #4F4F4F;
+    font-size: 15px;
+    flex-grow: 1;
+}
+
+.card__link a {
+    color: #FE3F3F;
+    font-size: 15px;
+    transition: color 0.5s ease;
+}
+
+.card__link a:hover {
+    text-decoration: underline;
+    color: darkred;
+}
+
+
+
+
+.faculty-california {
+    background: #FFF;
+    padding: 55px 0 72px;
+}
+
+.faculty-california__container {
+    max-width: 1728px;
+}
+
+.faculty-california__blocks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 90px;
+    margin-right: 70px;
+}
+
+.faculty-california__block1 {
+    max-width: 518px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.faculty-california__title {
+    color: #412672;
+    font-size: 34px;
+    line-height: 1.2;
+}
+
+.faculty-california__title strong {
+    font-weight: 700;
+}
+
+.faculty-california__text {
+    color: #412672;
+    font-size: 22px;
+}
+
+.faculty-california__list li {
+    color: #4F4F4F;
+    display: inline-flex;
+    gap: 15px;
+    padding-bottom: 20px;
+}
+
+
+.faculty-california__list li::before {
+    content: "";
+    background: url(../img/frame.svg) 0 0 no-repeat;
+    flex-basis: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    align-self: start;
+}
+
+.faculty-california__block2 {
+    max-width: 764px;
+}
+
+
+.services {
+    background: #412672;
+
+}
+
+.services__container {
+    max-width: 1230px;
+    padding: 70px 10px;
+}
+
+
+
+.services__title {
+    color: #FFF;
+    text-align: center;
+    font-size: 24px;
+    line-height: 1.2;
+    margin-bottom: 31px;
+}
+
+.services__title strong {
+    font-weight: 700;
+}
+
+.services__features {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.feature__icon {
+    flex-shrink: 0;
+}
+
+.feature__text {
+    display: inline-flex;
+    flex-direction: column;
+    color: #FFF;
+    line-height: 1.2;
+}
+
+.feature__value {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.feature__label {
+    font-size: 15px;
+}
+
+
+
+
+.footer {
+    background: linear-gradient(red, blue, green, yellow);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.footer__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.footer__content {
+    font-size: 48px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #FFF;
+    text-align: center;
+}
