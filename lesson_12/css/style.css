@@ -56,7 +56,7 @@ body {
     padding: 20px;
 }
 
-.menu__item:hover .sub-menu__item {
+.menu__item:hover .menu__sub-menu {
     visibility: visible;
     opacity: 1;
 }
@@ -69,6 +69,8 @@ body {
     position: absolute;
     top: 100%;
     left: 0;
+    visibility: hidden;
+    opacity: 0;
 }
 
 .sub-menu__item:not(:last-child) {
@@ -85,10 +87,7 @@ body {
     color: #eeee1a;
 }
 
-.sub-menu__item {
-    visibility: hidden;
-    opacity: 0;
-}
+
 
 
 .page {
