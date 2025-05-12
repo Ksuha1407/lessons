@@ -121,6 +121,8 @@ body {
 }
 
 .form-billing__checkbox:checked+.form-billing__label::before {
+	background: url(../img/check_01.svg);
+	background-position: center;
 	background-color: #00B207;
 }
 
