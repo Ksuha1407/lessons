@@ -1,0 +1,14 @@
+@media (max-width:767.98px) {
+    .header__content {
+        font-size: 40px;
+        color: #18bdf0;
+    }
+
+    .featured-products__button {
+        font-size: 40px;
+    }
+
+    .title {
+        font-size: 30px;
+    }
+}
