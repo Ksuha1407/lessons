@@ -65,7 +65,7 @@
 								</div>
 								<div class="form-billing__inputs">
 									<label for="zip-code"> Zip Code </label>
-									<input id="zip-code" class="form-billing__input" required name="zip-code" type="numeric" placeholder="Zip Code">
+									<input id="zip-code" class="form-billing__input" required name="zip-code" type="number" placeholder="Zip Code">
 								</div>
 							</div>
 							<div class="form-billing__information-row">
@@ -103,10 +103,11 @@
 									<div class="product__first">
 										<div class="product__price-tag">
 											<a href="#">
-												<img class="product__image" src="img/Image_01.avif" alt="Green Capsicum">
+												<img class="product__image" src="img/image_01.avif" alt="Green Capsicum">
 												<p class="product__text">Green Capsicum</p>
 											</a>
-											<p>x5</p>
+											<label class="product__quantity"> x <input type="number" min="1" value="1" class="quantity-input">
+											</label>
 										</div>
 										<div>
 											<p class="product__price price">$70.00</p>
@@ -115,10 +116,11 @@
 									<div class="product__second">
 										<div class="product__price-tag">
 											<a href="#">
-												<img class="product__image" src="img/Image_02.avif" alt="Red Capsicum">
+												<img class="product__image" src="img/image_02.avif" alt="Red Capsicum">
 												<p class="product__text">Red Capsicum</p>
 											</a>
-											<p>x1</p>
+											<label class="product__quantity"> x <input type="number" min="1" value="1" class="quantity-input">
+											</label>
 										</div>
 										<div>
 											<p class="product__price price">$14.00</p>
