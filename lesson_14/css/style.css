@@ -109,29 +109,30 @@ body {
 	width: 428px;
 }
 
+
+
+
+
+
 .form-billing__checkboxs {
 	display: inline-flex;
 	margin-bottom: 32px;
+	position: relative;
 }
 
 .form-billing__checkbox {
+	position: absolute;
 	opacity: 0;
 	width: 0;
 	height: 0;
-
-}
-
-.form-billing__checkbox:checked+.form-billing__label::before {
-
-	background: url(../img/check_01.svg);
-	background-position: center;
-	background-color: #00B207;
 }
 
 .form-billing__label {
 	display: flex;
 	align-items: center;
 	gap: 6px;
+	position: relative;
+	cursor: pointer;
 }
 
 .form-billing__label::before {
@@ -139,10 +140,22 @@ body {
 	width: 20px;
 	height: 20px;
 	border-radius: 6px;
-	background: url(../img/checkbox.svg) 0 0 / 20px no-repeat;
-	align-self: flex-start;
+	background: url(../img/checkbox.svg) center/20px no-repeat;
 	transition: background-color 0.3s;
 }
+
+.form-billing__checkbox:checked+.form-billing__label::before {
+	background: url(../img/check_01.svg) center/20px no-repeat;
+	background-color: #00B207;
+}
+
+.form-billing__checkbox:focus+.form-billing__label::before {
+	outline: 2px solid #0dc43a;
+	outline-offset: 2px;
+}
+
+
+
 
 .form-billing__line {
 	width: auto;
@@ -215,6 +228,35 @@ body {
 	gap: 6px;
 }
 
+
+.product__quantity {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+
+
+.quantity-input {
+	max-width: 50px;
+	padding: 4px 8px;
+	text-align: center;
+	margin-left: 4px;
+	border-radius: 6px;
+	border: 1px solid #ccc;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quantity-input:focus {
+	outline: none;
+	border-color: #00B207;
+	box-shadow: 0 0 5px rgba(0, 178, 6, 0.733);
+}
+
+
+
+
+
 .price {
 	font-weight: 500;
 }
@@ -266,6 +308,22 @@ body {
 	background-position: center;
 
 }
+
+
+
+.form-method__radio:focus+.form-method__span::before {
+	outline: 2px solid #007bff;
+	outline-offset: 2px;
+}
+
+
+input:disabled+.form-method__span,
+.form-method__span--disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+
 
 .form-method__label {
 	display: flex;
