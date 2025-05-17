@@ -1,7 +1,7 @@
 @import url("fonts.css");
 @import url("reset.css");
 @import url("button.css");
-@import url("mobile.css");
+
 
 
 
@@ -77,14 +77,20 @@ body {
 	font-weight: 500;
 	color: #00B207;
 	display: inline-flex;
+	justify-content: center;
+	align-items: center;
 	gap: 12px;
 	background-color: #fff;
 }
 
 .button img {
-	aspect-ratio: 15 / 12;
+	aspect-ratio: 17 / 15;
 	object-fit: contain;
 	object-position: center;
+}
+
+.button:hover {
+	text-decoration: underline;
 }
 
 
