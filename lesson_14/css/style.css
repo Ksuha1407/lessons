@@ -139,7 +139,7 @@ body {
 	content: "";
 	width: 20px;
 	height: 20px;
-	border-radius: 6px;
+	border-radius: 4px;
 	background: url(../img/checkbox.svg) center/20px no-repeat;
 	transition: background-color 0.3s;
 }
@@ -147,11 +147,6 @@ body {
 .form-billing__checkbox:checked+.form-billing__label::before {
 	background: url(../img/check_01.svg) center/20px no-repeat;
 	background-color: #00B207;
-}
-
-.form-billing__checkbox:focus+.form-billing__label::before {
-	outline: 2px solid #0dc43a;
-	outline-offset: 2px;
 }
 
 
@@ -311,12 +306,6 @@ body {
 
 
 
-.form-method__radio:focus+.form-method__span::before {
-	outline: 2px solid #007bff;
-	outline-offset: 2px;
-}
-
-
 input:disabled+.form-method__span,
 .form-method__span--disabled {
 	opacity: 0.5;
@@ -372,14 +361,6 @@ button {
 	font-weight: 600;
 	line-height: 1.2;
 }
-
-
-
-
-
-
-
-
 
 
 
