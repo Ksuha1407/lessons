@@ -149,6 +149,11 @@ body {
 	background-color: #00B207;
 }
 
+.form-billing__checkbox:focus-visible+.form-billing__label::before,
+.form-billing__checkbox:focus+.form-billing__label::before {
+	outline: 1px solid #0dc43a;
+	outline-offset: 1px;
+}
 
 
 
@@ -304,7 +309,11 @@ body {
 
 }
 
-
+.form-method__radio:focus-visible+.form-method__span::before,
+.form-method__radio:focus+.form-method__span::before {
+	outline: 1px solid #0dc43a;
+	outline-offset: 1px;
+}
 
 input:disabled+.form-method__span,
 .form-method__span--disabled {
@@ -361,6 +370,7 @@ button {
 	font-weight: 600;
 	line-height: 1.2;
 }
+
 
 
 
