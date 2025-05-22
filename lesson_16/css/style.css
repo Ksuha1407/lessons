@@ -1,0 +1,315 @@
+@import url("fonts.css");
+@import url("reset.css");
+@import url("button.css");
+
+
+body {
+	font-family: "Montserrat", sans-serif;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 1.5;
+	color: #000;
+}
+
+.wrapper {
+	overflow: clip;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.wrapper>main {
+	flex-grow: 1;
+}
+
+[class*="__container"] {
+	max-width: 1230px;
+	margin: 0 auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+
+
+
+.header {
+	position: sticky;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 5;
+	padding-top: 27px;
+	padding-bottom: 25px;
+	background-color: rgb(246, 227, 218);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.header__content {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 15px;
+}
+
+.logo {
+	position: relative;
+	z-index: 5;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.logo__icon {
+	display: flex;
+	flex: 0 0 44px;
+}
+
+.logo__text {
+	font-size: 18px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+
+
+.menu__list {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	column-gap: 30px;
+}
+
+.menu__item {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+
+.menu__link {
+	text-transform: uppercase;
+	transition: all 0.3s;
+}
+
+.menu__link:hover {
+	text-decoration: underline;
+}
+
+
+
+.header__button {
+	position: relative;
+	z-index: 5;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.header__button {
+	color: #FFF;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1.5;
+	padding: 8px 30px;
+	background: #F26522;
+	box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+	border-radius: 999px;
+}
+
+.page__container {
+	max-width: 1728px;
+}
+
+.icon-menu {
+	display: none;
+	position: relative;
+	z-index: 5;
+}
+
+.page {
+	background: url(../img/image-background.avif) center / cover no-repeat;
+}
+
+
+.footer__content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 24px;
+	font-weight: 700;
+}
+
+
+
+
+
+@media (max-width: 991.98px) {
+	.menu__list {
+		column-gap: 15px;
+	}
+
+	.logo__text {
+		display: none;
+	}
+
+	.header__button {
+		flex-shrink: 0;
+	}
+
+
+}
+
+
+
+@media (max-width: 767.98px) {
+
+	.logo__text {
+		display: block;
+	}
+
+	.header__content {
+		flex-wrap: wrap;
+		gap: 8px;
+
+	}
+
+	.logo {
+		gap: 12px;
+	}
+
+	.header__button {
+		font-size: 16px;
+		width: 100%;
+		justify-content: center;
+	}
+
+
+	.icon-menu {
+		display: block;
+		width: 30px;
+		height: 18px;
+		position: relative;
+	}
+
+
+	.icon-menu::before,
+	.icon-menu::after,
+	.icon-menu span {
+		position: absolute;
+		content: "";
+		width: 100%;
+		height: 2px;
+		right: 0;
+		background-color: #000;
+		transition: all 0.3s;
+	}
+
+	.icon-menu::before {
+		top: 0;
+	}
+
+	.icon-menu::after {
+		bottom: 0;
+	}
+
+	.icon-menu span {
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	.menu-open .icon-menu span {
+		width: 0;
+	}
+
+	.menu-open .icon-menu::before {
+		top: 50%;
+
+		transform: rotate(-45deg) translateY(-2px);
+	}
+
+	.menu-open .icon-menu::after {
+		bottom: 50%;
+		transform: rotate(45deg) translateY(2px);
+	}
+
+
+	.menu__body {
+		opacity: 0;
+		visibility: hidden;
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		top: 0;
+		left: 0;
+		z-index: 3;
+		background-color: rgb(246, 227, 218);
+		padding: 150px 15px 30px 15px;
+		transition: all 0.3s;
+	}
+
+	.menu__body::before {
+		content: "";
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 3;
+		height: 120px;
+		background-color: rgb(246, 227, 218);
+		transition: all 0.3s;
+	}
+
+
+	.menu-open .menu__body,
+	.menu-open .menu__body::before {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	.menu__list {
+		flex-grow: 1;
+		align-items: stretch;
+		flex-direction: column;
+		gap: 18px;
+	}
+
+
+
+	.menu__link {
+		font-size: 20px;
+	}
+
+
+
+
+
+	.header {
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+
+
+}
+
+@media (max-width: 570px) {
+
+
+	.logo__text {
+		display: block;
+
+		font-size: 16px;
+	}
+
+	.menu__body {
+		padding: 130px 15px 30px 15px;
+	}
+
+	.menu__body::before {
+
+		height: 128px;
+	}
+
+}
