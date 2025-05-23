@@ -246,7 +246,7 @@ body {
 		top: 0;
 		left: 0;
 		z-index: 3;
-		background-color: rgb(246, 227, 218);
+		background-color: rgba(246, 227, 218, 0.7);
 		padding: 150px 15px 30px 15px;
 		transition: all 0.3s;
 	}
