@@ -92,7 +92,7 @@ body {
 	transition: all 0.3s;
 }
 
-.menu__link:hover {
+.menu__item:hover .menu__link {
 	text-decoration: underline;
 }
 
@@ -140,7 +140,12 @@ body {
 	font-weight: 700;
 }
 
+@media (any-hover:hover) {
+	.menu__item:hover .menu__link {
+		text-decoration: underline;
+	}
 
+}
 
 
 
