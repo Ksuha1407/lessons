@@ -262,6 +262,7 @@ body {
 
 .product-card__image {
 	aspect-ratio: 1 / 1;
+	max-width: 246px;
 	width: 100%;
 	object-fit: cover;
 	object-position: center;
@@ -379,6 +380,7 @@ body {
 .tabs__image {
 	padding: 5px;
 	aspect-ratio: 102 / 102;
+	max-width: 102px;
 }
 
 .tabs__menu {
@@ -523,6 +525,7 @@ body {
 
 .tabs__picture {
 	aspect-ratio: 312 / 423;
+	max-width: 370px;
 	object-fit: cover;
 	object-position: center;
 }
