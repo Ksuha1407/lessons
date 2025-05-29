@@ -94,6 +94,7 @@ body {
 
 .product-card__picture {
 	aspect-ratio: 248 / 351;
+	max-width: 248px;
 	width: 100%;
 	object-fit: cover;
 }
