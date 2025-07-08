@@ -1,0 +1,33 @@
+@use "mixins/mixins" as *;
+
+.header {
+    margin-block-end: 2rem;
+    background: linear-gradient(red, blue, green, yellow);
+    border-radius: 0.625rem;
+
+
+
+    // .header__content
+
+    &__content {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #FFF;
+        text-transform: uppercase;
+        text-align: center;
+        text-wrap: none;
+
+        @include mobile {
+            font-size: 1rem;
+            color: red;
+        }
+
+        &:hover {
+            color: aqua;
+
+
+        }
+
+
+    }
+}
