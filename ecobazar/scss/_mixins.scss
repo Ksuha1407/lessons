@@ -104,7 +104,9 @@ $responsiveType: 1;
 }
 }
 
-@mixin typography($size: "S", $weight: "400") {
+
+// Міксин для встановлення типографіки
+@mixin typography($size: "S", $weight: 400) {
     $fontSize: 14;
     $fontWeight: $weight;
 
