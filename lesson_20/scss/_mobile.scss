@@ -1,0 +1,51 @@
+// Переменные
+$laptop: 75em;
+$tablet_b: 61.9988em;
+$tablet: 47.9988em;
+$mobile: 29.9988em;
+$mobile_s: 24.5613em;
+
+// Миксины
+@mixin laptop {
+    @media (max-width: $laptop) {
+        @content;
+    }
+}
+
+@mixin tablet_b {
+    @media (max-width: $tablet_b) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: $mobile) {
+        @content;
+    }
+}
+
+@mixin mobile_s {
+    @media (max-width: $mobile_s) {
+        @content;
+    }
+}
+
+@mixin hover {
+    @media (hover: hover) {
+        &:hover {
+            @content;
+        }
+    }
+
+    @media (hover: none) {
+        &:active {
+            @content;
+        }
+    }
+}

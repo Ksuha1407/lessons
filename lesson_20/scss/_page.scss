@@ -1,0 +1,37 @@
+@use "index" as *;
+
+.list {
+    color: aqua;
+    // .list__item
+
+    &__item {
+        font-size: 24px;
+        visibility: hidden;
+        opacity: 0;
+        transform: translate(-100%, 0);
+        animation: show-item 1s ease forwards;
+
+        &:not(:last-child) {
+            margin-block-end: 20px;
+        }
+
+        @for $i from 1 through 8 {
+            &:nth-child(#{$i}) {
+                $delay: (
+                    $i - 1) * 0.2;
+                animation-delay: #{$delay}s;
+            }
+        }
+    }
+}
+
+@keyframes show-item {
+    0% {}
+
+    100% {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(0px, 0%
+        );
+}
+}
