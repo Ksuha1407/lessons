@@ -104,62 +104,81 @@ $responsiveType: 1;
 }
 }
 
-
-// Міксин для встановлення типографіки
-@mixin typography($size: "S", $weight: 400) {
+@mixin typography($size: "S", $weight: 400, $adapt: 1, $sizeMob: 0) {
     $fontSize: 14;
+    $fontSizeMob: 14;
     $fontWeight: $weight;
 
-    @if $size =="T" {
+    @if ($size =="T") {
         $fontSize: 12;
     }
 
-    @if $size =="S" {
+    @if ($size =="S") {
         $fontSize: 14;
     }
 
-    @if $size =="M" {
+    @if ($size =="M") {
         $fontSize: 16;
+        $fontSizeMob: 14;
     }
 
-    @if $size =="L" {
+    @if ($size =="L") {
         $fontSize: 18;
+        $fontSizeMob: 16;
     }
 
-    @if $size =="XL" {
+    @if ($size =="XL") {
         $fontSize: 20;
+        $fontSizeMob: 18;
     }
 
-    @if $size =="XXL" {
+    @if ($size =="XXL") {
         $fontSize: 24;
+        $fontSizeMob: 20;
     }
 
-    @if $size =="h1" {
+    @if ($size =="h1") {
         $fontSize: 56;
+        $fontSizeMob: 32;
     }
 
-    @if $size =="h2" {
+    @if ($size =="h2") {
         $fontSize: 48;
+        $fontSizeMob: 28;
     }
 
-    @if $size =="h3" {
+    @if ($size =="h3") {
         $fontSize: 40;
+        $fontSizeMob: 26;
     }
 
-    @if $size =="h4" {
+    @if ($size =="h4") {
         $fontSize: 36;
+        $fontSizeMob: 24;
     }
 
-    @if $size =="h5" {
+    @if ($size =="h5") {
         $fontSize: 32;
+        $fontSizeMob: 22;
     }
 
-    @if $size =="d1" {
+    @if ($size =="d1") {
         $fontSize: 72;
+        $fontSizeMob: 38;
     }
 
+    @if ($sizeMob > 0) {
+        $fontSizeMob: $sizeMob;
+    }
 
-    font-size: toRem($fontSize);
+    @if ($adapt ==1) {
+        @include adaptiveValue("font-size", $fontSize, $fontSizeMob);
+    }
+
+    @else {
+        font-size: toRem($fontSize);
+    }
+
     font-weight: $fontWeight;
-
+    line-height: 1.5;
 }
