@@ -1,7 +1,10 @@
 @use "sass:math";
 @use "_reset.scss";
+@use "_iconfont.scss";
+@use "_components.scss";
 @use "_colors.scss" as *;
 @use "_mixins.scss" as *;
+@use "_header.scss";
 
 body {
     font-family: "Poppins", sans-serif;
@@ -13,8 +16,4 @@ body {
     max-width: toRem($containerWidth);
     padding-inline: toRem(math.div($containerPadding, 2));
     margin: 0 auto;
-}
-
-.page {
-    @include typography("XXL", 600, 1, 12);
 }
