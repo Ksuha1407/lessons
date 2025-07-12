@@ -1,14 +1,14 @@
 @use "sass:math";
 @use "_reset.scss";
 @use "_iconfont.scss";
-@use "_components.scss";
 @use "_colors.scss" as *;
 @use "_mixins.scss" as *;
+@use "_components.scss";
 @use "_header.scss";
 
 body {
     font-family: "Poppins", sans-serif;
-    @include typography();
+    font-size: toRem(14);
     color: $grey6;
 }
 

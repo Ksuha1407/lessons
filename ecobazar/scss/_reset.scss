@@ -34,22 +34,26 @@ body {
     height: 100%;
 }
 
+address {
+    font-style: normal;
+}
+
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    font-weight: inherit;
-    font-size: inherit;
+    font: inherit;
 }
 
 /* FORM */
+select,
 input,
 button,
 textarea {
-    font-family: inherit;
-    font-size: inherit;
+    font: inherit;
     line-height: inherit;
     color: inherit;
     background-color: transparent;

@@ -5,11 +5,13 @@
 .title {
     color: $grey9;
     @include typography("h5", 600);
+    line-height: 1.5;
     line-height: 1.2;
 }
 
 .link-arrow {
     @include typography("M", 500);
+    line-height: 1.5;
     color: $success;
     display: inline-flex;
     flex-direction: row-reverse;
@@ -71,29 +73,18 @@
         color: $grey9;
         transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 
+
+        &--left {
+            transform: rotate(180deg);
+        }
+
+
         @media (any-hover: hover) and (any-pointer: fine) {
             &:hover {
                 background-color: $success;
                 color: $white;
                 border-color: $success;
             }
-
         }
     }
-
-    // .block-header__slider-arrow--left
-
-    &__slider-arrow--left {
-        transform: rotate(180deg);
-    }
-
-    // .block-header__slider-arrow--icon-arrow
-
-    // &__slider-arrow--icon-arrow {}
-
-    // .block-header__slider-arrow--right
-
-    // &__slider-arrow--right {}
-
-
 }

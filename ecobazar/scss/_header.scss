@@ -1,0 +1,127 @@
+@use "colors" as *;
+@use "mixins" as *;
+
+
+.header {
+
+    // .header__top
+    &__top {
+        border-bottom: 1px solid $grey2;
+    }
+
+    // .header__body
+
+
+    // .header__bottom
+
+}
+
+.top-header {
+
+
+    // .top-header__container
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: toRem(5) toRem(10);
+        padding-block: toRem(12);
+    }
+
+    // .top-header__location
+    &__location {
+        display: flex;
+        align-items: center;
+        gap: toRem(8);
+    }
+
+    // .top-header__link-location
+    &__link-location {
+        display: inline-flex;
+        align-items: center;
+        @include typography("T");
+        gap: toRem(8);
+
+        @media (any-hover: hover) and (any-pointer: fine) {
+            &:hover {
+                color: $successDark;
+            }
+
+        }
+
+        &:before {
+            align-self: flex-start;
+            @include typography("L");
+        }
+    }
+
+    // .top-header__actions
+
+}
+
+.actions-top-header {
+    display: flex;
+    align-items: center;
+    gap: toRem(20);
+
+    // .actions-top-header__lang-currency
+
+
+    // .actions-top-header__auth
+
+}
+
+.lang-currency {
+    display: flex;
+    align-items: center;
+    gap: toRem(20);
+
+    &::after {
+        content: "";
+        background-color: $grey1;
+        width: toRem(1);
+        height: toRem(15);
+    }
+
+    &__element {
+        position: relative;
+
+        &::before {
+            position: absolute;
+            inset-inline-end: 0;
+            inset-block-start: 50%;
+            translate: 0 -50%;
+            font-size: toRem(4.5);
+            pointer-events: none;
+        }
+
+
+    }
+
+    // .lang-currency__select
+    &__select {
+        @include typography("T");
+        color: $grey6;
+        appearance: none;
+        padding-inline-end: toRem(10.5);
+    }
+
+    // .lang-currency__item
+
+}
+
+.auth-top-header {
+    @include typography("T");
+    color: $grey6;
+
+    // .auth-top-header__link
+    &__link {
+        @media (any-hover: hover) and (any-pointer: fine) {
+            &:hover {
+                text-decoration: underline;
+            }
+
+        }
+    }
+}
