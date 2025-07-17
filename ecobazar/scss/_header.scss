@@ -125,3 +125,208 @@
         }
     }
 }
+
+// ======================================================
+
+
+
+.body-header {
+
+    // .body-header__container
+    &__container {
+        display: flex;
+        // flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: toRem(10);
+        padding-block: toRem(27.5);
+    }
+
+    // .body-header__logo
+    &__logo {
+        flex-shrink: 0;
+    }
+
+    // .body-header__search
+    &__search {
+        margin-left: toRem(8);
+        flex-basis: toRem(498);
+    }
+
+    // .body-header__actions
+}
+
+.logo-header {
+    display: inline-flex;
+    align-items: center;
+    gap: toRem(8);
+
+    // .logo-header__icon
+
+    // .logo-header__text
+    &__text {
+        @include typography("h5", 500, 1.18);
+        letter-spacing: toRem(-0.96);
+        color: $green9;
+    }
+}
+
+.search-header {
+    position: relative;
+    border-radius: toRem(6) 0 0 toRem(6);
+    outline: toRem(1) solid $grey1;
+    display: flex;
+    align-items: center;
+
+    // .search-header--icon-search
+
+
+    // .search-header__input
+    &__input {
+        height: toRem(45);
+        padding-inline-start: toRem(44);
+        padding-inline-end: toRem(10);
+        color: $grey9;
+        @include typography("M");
+
+        &::placeholder {
+            color: $grey5;
+            transition: opacity 0.1s ease;
+        }
+
+        &:focus::placeholder {
+            opacity: 0;
+        }
+    }
+
+    // .search-header__button
+    &__button {
+        padding-inline: toRem(24);
+        border-radius: 0 toRem(6) toRem(6) 0;
+    }
+
+    &::before {
+        @include typography("M");
+        color: $grey9;
+        position: absolute;
+        inset-block-start: 50%;
+        inset-inline-start: toRem(17.5);
+        translate: 0 -50%;
+        pointer-events: none;
+    }
+}
+
+
+
+.actions-header {
+    display: flex;
+    align-items: center;
+    gap: toRem(17.4);
+
+
+
+    // .actions-header__favorite
+    &__favorite {
+        display: flex;
+        align-items: center;
+        gap: toRem(17.4);
+        color: $grey9;
+        transition: color 0.3s ease;
+
+        &::before {
+            @include typography("XXL");
+
+        }
+
+        &:not(:last-child) {
+            &::after {
+                content: "";
+                width: toRem(1);
+                height: toRem(24);
+                background-color: $grey2;
+            }
+        }
+
+        @media (any-hover: hover) and (any-pointer: fine) {
+            &:hover {
+                color: $successDark;
+            }
+        }
+    }
+
+    // .actions-header__cart
+
+
+}
+
+
+
+.cart-header {
+    display: flex;
+    align-items: center;
+    gap: toRem(12);
+
+    * {
+        transition: color 0.3s ease;
+    }
+
+    // .cart-header__icon
+    &__icon {
+        @include typography("XXL");
+        color: $grey9;
+        position: relative;
+
+
+        span {
+            position: absolute;
+            inset-inline-end: toRem(-5.5);
+            inset-block-start: toRem(-5.5);
+            font-size: toRem(10);
+            line-height: 1;
+            width: toRem(18);
+            aspect-ratio: 1;
+            outline: toRem(1) solid $white;
+            color: $white;
+            background-color: $successDark;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    }
+
+    // .cart-header__body
+    &__body {
+        display: flex;
+        flex-direction: column;
+        gap: toRem(7);
+    }
+
+    // .cart-header__label
+    &__label {
+        color: $grey7;
+        @include typography("XT");
+    }
+
+    // .cart-header__value
+    &__value {
+        @include typography("S", 500);
+        line-height: 1;
+        color: $grey9;
+    }
+
+    @media (any-hover: hover) and (any-pointer: fine) {
+        &:hover {
+
+            .cart-header__icon,
+            .cart-header__label,
+            .cart-header__value {
+                color: $successDark;
+            }
+
+        }
+    }
+}
+
+// ===========================================================================

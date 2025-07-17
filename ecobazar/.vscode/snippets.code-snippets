@@ -22,5 +22,24 @@
 			"@include typography($1);"
 		],
 		"description": "Add typo"
+	},
+	"Rem": {
+		"scope": "scss",
+		"prefix": "re",
+		"body": [
+			"toRem($1)"
+		],
+		"description": "Add toRem"
+	},
+	"Media query hover skeleton": {
+		"prefix": "mh",
+		"body": [
+			"@media (any-hover: hover) and (any-pointer: fine) {",
+			"  &:hover {",
+			"    $1",
+			"  }",
+			"}"
+		],
+		"description": "Шаблон медіа-запиту для hover з порожнім вмістом"
 	}
 }

@@ -8,7 +8,7 @@
 
 body {
     font-family: "Poppins", sans-serif;
-    font-size: toRem(14);
+    @include typography("Body", 400, 0);
     color: $grey6;
 }
 
