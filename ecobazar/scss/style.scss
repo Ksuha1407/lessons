@@ -5,12 +5,31 @@
 @use "_mixins.scss" as *;
 @use "_components.scss";
 @use "_header.scss";
+@use "_footer.scss";
 
 body {
     font-family: "Poppins", sans-serif;
     @include typography("Body", 400, 0);
     color: $grey6;
+
+    &[data-touch] {
+        // ....
+    }
 }
+
+.wrapper {
+    overflow: clip;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    >main {
+        flex-grow: 1;
+    }
+}
+
+
+
 
 [class*="__container"] {
     max-width: toRem($containerWidth);

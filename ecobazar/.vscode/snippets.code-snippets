@@ -41,5 +41,69 @@
 			"}"
 		],
 		"description": "Шаблон медіа-запиту для hover з порожнім вмістом"
+	},
+	"md1": {
+		"prefix": "md1",
+		"body": [
+			"@media (max-width:toEm(\\$pc)) {\n\t $0 \n}"
+		],
+		"description": "md1"
+	},
+	"mmd1": {
+		"prefix": "mmd1",
+		"body": [
+			"@media (min-width:toEm(\\$pc)) {\n\t $0 \n}"
+		],
+		"description": "mmd1"
+	},
+	"md2": {
+		"prefix": "md2",
+		"body": [
+			"@media (max-width:toEm(\\$tablet)) {\n\t $0 \n}"
+		],
+		"description": "md2"
+	},
+	"mmd2": {
+		"prefix": "mmd2",
+		"body": [
+			"@media (min-width:toEm(\\$tablet)) {\n\t $0 \n}"
+		],
+		"description": "mmd2"
+	},
+	"md3": {
+		"prefix": "md3",
+		"body": [
+			"@media (max-width:toEm(\\$mobile)) {\n\t $0 \n}"
+		],
+		"description": "md3"
+	},
+	"mmd3": {
+		"prefix": "mmd3",
+		"body": [
+			"@media (min-width:toEm(\\$mobile)) {\n\t $0 \n}"
+		],
+		"description": "mmd3"
+	},
+	"md4": {
+		"prefix": "md4",
+		"body": [
+			"@media (max-width:toEm(\\$mobileSmoll)) {\n\t $0 \n}"
+		],
+		"description": "md4"
+	},
+	"mmd4": {
+		"prefix": "mmd4",
+		"body": [
+			"@media (min-width:toEm(\\$mobileSmoll)) {\n\t $0 \n}"
+		],
+		"description": "mmd4"
+	},
+	"Adaptive Value Mixin Extended": {
+		"scope": "scss,sass",
+		"prefix": "adv",
+		"body": [
+			"@include adaptiveValue(\"$1\", $2, $3);"
+		],
+		"description": "Generate the extended adaptive value mixin with zero-value checks."
 	}
 }
