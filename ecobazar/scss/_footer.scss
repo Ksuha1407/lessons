@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "colors" as *;
 @use "mixins" as *;
 
@@ -5,7 +6,7 @@
     background-color: $grey9;
 
     // .footer__container
-    &__container {}
+
 
     // .footer__body
     &__body {
@@ -13,7 +14,7 @@
     }
 
     // .footer__bottom
-    &__bottom {}
+
 }
 
 .body-footer {
@@ -44,15 +45,16 @@
     }
 
     // .body-footer__logo
-    &__logo {}
+
 
     // .body-footer__text
-    &__text {}
+
 
     // .body-footer__links
     &__links {
         @include typography("M");
         display: flex;
+        flex-wrap: wrap;
         gap: toRem(10);
     }
 
@@ -110,12 +112,16 @@
 
 
     // .menus-footer__column
-    &__column {}
+
 
     // .menus-footer__title
     &__title {
         @include typography("M", 500);
         color: $white;
+        cursor: pointer;
+        position: relative;
+        user-select: none;
+        padding-right: toRem(20); // зарезервувати місце для стрілки
 
         &:not(:last-child) {
             margin-bottom: toRem(20);
@@ -129,10 +135,54 @@
                 text-decoration-thickness: toRem(2);
             }
         }
+
+        @media (min-width:toEm($mobile)) {
+            &::before {
+                display: none;
+            }
+        }
+
+        &--icon-shevron {
+            position: relative;
+            padding-right: toRem(20);
+
+            @media (max-width:toEm($mobile)) {
+                &::before {
+                    content: "\e912";
+                    font-family: "iconfont";
+                    font-size: toRem(8);
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    color: $success;
+                    pointer-events: none;
+                    transition: transform 0.3s ease;
+                }
+            }
+
+            // Поворот при відкритті
+            &.active::before {
+                transform: translateY(-50%) rotate(180deg);
+            }
+        }
+
+    }
+
+    @media (max-width: toEm($mobile)) {
+        .menus-footer__list {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .menus-footer__list.active {
+            max-height: 500px; // або інше велике значення
+        }
     }
 
     // .menus-footer__list
-    &__list {}
+
 
     // .menus-footer__item
     &__item {
@@ -156,6 +206,10 @@
             }
         }
     }
+
+
+
+
 }
 
 .bottom-footer {
@@ -168,6 +222,13 @@
         justify-content: space-between;
         align-items: center;
         gap: toRem(15);
+
+        @media (max-width:toEm($mobile)) {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
     }
 
     // .bottom-footer__copy
@@ -177,16 +238,14 @@
     }
 
     // .bottom-footer__payments
-    &__payments {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: toRem(8);
-    }
+
 }
 
 .payments {
-
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: toRem(8);
     // .payments__item
-    &__item {}
+
 }

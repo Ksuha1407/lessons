@@ -1,0 +1,121 @@
+@use "sass:math";
+@use "colors" as *;
+@use "mixins" as *;
+
+// ==============================================
+
+.page {
+
+    // .page__hero
+    &__hero {}
+}
+
+// ===============================================
+.hero {
+    @include adaptiveValue("padding-block", 23, 15);
+
+    // .hero__container
+    &__container {}
+
+    // .hero__item
+    &__item {}
+}
+
+.item-hero {
+    overflow: hidden;
+    border-radius: toRem(10);
+    border: toRem(1) solid #000;
+    box-shadow: 0 toRem(4) toRem(4) 0 rgba(0, 0, 0, 0.25);
+
+
+    // .item-hero__link
+    &__link {
+        // Ніколи не використовувати aspect-ratio: та display: flex; разом ніколи!!!
+        display: block;
+        position: relative;
+        aspect-ratio: 872 / 600;
+        @include adaptiveValue("padding", 60, 20);
+
+    }
+
+    // .item-hero__body
+    &__body {
+        min-height: 100%;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: toRem(28);
+
+        @media (min-width:toEm(550)) {
+            max-width: 60%;
+        }
+    }
+
+    // .item-hero__title
+    &__title {
+        color: $white;
+        @include typography("h2", 600);
+
+    }
+
+    // .item-hero__info
+    &__info {
+        border-left: toRem(2)solid $successBright;
+        padding-left: toRem(12);
+        color: $white;
+    }
+
+    // .item-hero__sale
+    &__sale {
+        @include typography("XL", 500);
+
+        span {
+            white-space: nowrap;
+            background-color: $warning;
+            border-radius: toRem(5);
+            padding: toRem(4) toRem(12);
+            @include typography("XL", 600);
+        }
+
+        &:not(:last-child) {
+            margin-bottom: toRem(8);
+        }
+    }
+
+    // .item-hero__label
+    &__label {
+        @include typography("S");
+    }
+
+    // .item-hero__picture
+    &__picture {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+
+        &::before {
+            content: "";
+            background: linear-gradient(99deg, rgba(0, 0, 0, 0.60) 10.4%, rgba(0, 0, 0, 0.00) 59.43%);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    // .item-hero__image
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+
+// =========================================

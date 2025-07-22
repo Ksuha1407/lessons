@@ -22,6 +22,8 @@
     transition: color 0.3s ease;
 
     &::before {
+        content: "\e900";
+        font-family: "iconfont";
         @include typography("T");
     }
 
@@ -105,7 +107,12 @@
     background-color: $success;
     @include typography("M", 600);
     color: $white;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+
+    &--white {
+        color: $success;
+        background-color: $white;
+    }
 
     &--middle {
         padding-inline: toRem(32);
@@ -119,8 +126,23 @@
         @include typography("T", 600);
     }
 
+    &--arrow {
+        display: inline-flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        gap: toRem(12);
+
+
+        &::before {
+            content: "\e900";
+            font-family: "iconfont";
+            @include typography("T");
+        }
+    }
+
     @media (any-hover: hover) and (any-pointer: fine) {
         &:hover {
+            color: $white;
             background-color: $successDark;
         }
     }
