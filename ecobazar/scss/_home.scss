@@ -4,37 +4,75 @@
 
 // ==============================================
 
-.page {
+// .page {
 
-    // .page__hero
-    &__hero {}
-}
+//     // .page__hero
+//     &__hero {}
+// }
 
+// ===============================================
+// Ніколи не використовувати aspect-ratio: та display: flex; разом ніколи!!!
 // ===============================================
 .hero {
     @include adaptiveValue("padding-block", 23, 15);
 
     // .hero__container
-    &__container {}
+    &__container {
+        display: grid;
+        // min-height: toRem(600);
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: minmax(toRem(288), auto);
+        grid-auto-rows: minmax(toRem(288), auto);
+        gap: toRem(24);
+
+        @media (max-width:toEm($tablet)) {
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: auto;
+        }
+
+        @media (max-width:toEm(560)) {
+            grid-template-columns: auto;
+        }
+    }
+
 
     // .hero__item
-    &__item {}
+    // &__item {}
 }
 
+
 .item-hero {
-    overflow: hidden;
-    border-radius: toRem(10);
-    border: toRem(1) solid #000;
-    box-shadow: 0 toRem(4) toRem(4) 0 rgba(0, 0, 0, 0.25);
+    display: flex;
+    position: relative;
+
+    &:nth-child(1) {
+        grid-column: span 2;
+        grid-row: span 2;
+
+        .item-hero__link {
+            @include adaptiveValue("padding", 60, 20);
+        }
+
+        @media (max-width:toEm($tablet)) {
+            grid-row: span 1;
+
+        }
+
+        @media (max-width:toEm(560)) {
+            grid-column: span 1;
+        }
+    }
+
+
 
 
     // .item-hero__link
     &__link {
-        // Ніколи не використовувати aspect-ratio: та display: flex; разом ніколи!!!
+        flex-grow: 1;
         display: block;
         position: relative;
-        aspect-ratio: 872 / 600;
-        @include adaptiveValue("padding", 60, 20);
+        @include adaptiveValue("padding", 32, 20);
+
 
     }
 
@@ -47,28 +85,71 @@
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        gap: toRem(28);
+
 
         @media (min-width:toEm(550)) {
             max-width: 60%;
         }
     }
 
-    // .item-hero__title
-    &__title {
-        color: $white;
-        @include typography("h2", 600);
+    // .item-hero__picture
+    &__picture {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border-radius: toRem(10);
+        overflow: hidden;
+
+        // .item-hero__picture--decor
+        &--decor {
+            border: toRem(1) solid #000;
+            box-shadow: 0 toRem(4) toRem(4) 0 rgba(0, 0, 0, 0.25);
+
+            &::before {
+                content: "";
+                background: linear-gradient(99deg, rgba(0, 0, 0, 0.60) 10.4%, rgba(0, 0, 0, 0.00) 59.43%);
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+            }
+        }
 
     }
 
-    // .item-hero__info
+    // .item-hero__image
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+    }
+}
+
+
+.type-1-hero-item {
+    gap: toRem(28);
+
+
+
+
+    // .big-hero-item__title
+    &__title {
+        color: $white;
+        @include typography("h2", 600);
+    }
+
+    // .big-hero-item__info
     &__info {
-        border-left: toRem(2)solid $successBright;
+        border-left: toRem(2) solid $successBright;
         padding-left: toRem(12);
         color: $white;
     }
 
-    // .item-hero__sale
+    // .big-hero-item__sale
     &__sale {
         @include typography("XL", 500);
 
@@ -84,38 +165,77 @@
             margin-bottom: toRem(8);
         }
     }
+}
 
-    // .item-hero__label
+
+.type-2-hero-item {
+    color: $grey9;
+
+    >* {
+        margin-bottom: toRem(8);
+    }
+
+    // .summer-hero-item__label
     &__label {
+        text-transform: uppercase;
+        @include typography("S", 500);
+
+    }
+
+    // .summer-hero-item__title
+    &__title {
+        @include typography("h5", 600);
+        margin-bottom: toRem(12);
+    }
+
+    // .summer-hero-item__text
+    &__text {
+        color: $grey6;
         @include typography("S");
+        margin-bottom: toRem(24);
     }
 
-    // .item-hero__picture
-    &__picture {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
+    // .summer-hero-item__button
 
-        &::before {
-            content: "";
-            background: linear-gradient(99deg, rgba(0, 0, 0, 0.60) 10.4%, rgba(0, 0, 0, 0.00) 59.43%);
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-        }
-    }
 
-    // .item-hero__image
-    &__image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    &:last-child {
+        margin-bottom: toRem(0);
     }
 }
+
+
+
+.type-3-hero-item {
+    align-items: center;
+    max-width: none;
+    color: $white;
+
+    >* {
+        margin-bottom: toRem(12);
+    }
+
+    // .type-3-hero-item__label
+    &__label {
+        text-transform: uppercase;
+        @include typography("S", 500);
+    }
+
+    // .type-3-hero-item__title
+    &__title {
+        @include typography("h5", 600);
+        margin-bottom: toRem(32);
+        text-align: center;
+    }
+
+    // .type-3-hero-item__button
+
+
+    &:last-child {
+        margin-bottom: toRem(0);
+    }
+}
+
+
 
 
 // =========================================

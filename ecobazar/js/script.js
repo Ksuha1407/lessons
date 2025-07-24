@@ -88,10 +88,10 @@ function documentActions(e) {
 document.querySelectorAll('.menus-footer__title').forEach(title => {
     title.addEventListener('click', () => {
         const list = title.nextElementSibling; // ul після h5
-        title.classList.toggle('active');
-        list.classList.toggle('active');
-    });
-});
+        title.classList.toggle('active')
+        list.classList.toggle('active')
+    })
+})
 
 
 
