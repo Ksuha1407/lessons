@@ -87,14 +87,14 @@
 	"md4": {
 		"prefix": "md4",
 		"body": [
-			"@media (max-width:toEm(\\$mobileSmoll)) {\n\t $0 \n}"
+			"@media (max-width:toEm(\\$mobileSmall)) {\n\t $0 \n}"
 		],
 		"description": "md4"
 	},
 	"mmd4": {
 		"prefix": "mmd4",
 		"body": [
-			"@media (min-width:toEm(\\$mobileSmoll)) {\n\t $0 \n}"
+			"@media (min-width:toEm(\\$mobileSmall)) {\n\t $0 \n}"
 		],
 		"description": "mmd4"
 	},

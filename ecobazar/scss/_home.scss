@@ -4,11 +4,21 @@
 
 // ==============================================
 
-// .page {
+.page {
 
-//     // .page__hero
-//     &__hero {}
-// }
+    // .page__hero
+    // &__hero {}
+
+    // .page__advantages
+    &__advantages {
+        @include adaptiveValue("margin-bottom", 60, 30);
+    }
+
+    // .page__popular
+    &__popular {}
+}
+
+
 
 // ===============================================
 // Ніколи не використовувати aspect-ratio: та display: flex; разом ніколи!!!
@@ -27,11 +37,13 @@
 
         @media (max-width:toEm($tablet)) {
             grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: minmax(toRem(450), auto);
             grid-auto-rows: auto;
         }
 
         @media (max-width:toEm(560)) {
             grid-template-columns: auto;
+            grid-template-rows: auto;
         }
     }
 
@@ -115,8 +127,13 @@
                 height: 100%;
                 top: 0;
                 left: 0;
+
+                @media (max-width:toEm($mobileSmall)) {
+                    background: linear-gradient(99deg, rgba(0, 0, 0, 0.60) 20%, rgba(0, 0, 0, 0.00) 95%);
+                }
             }
         }
+
 
     }
 
@@ -128,6 +145,7 @@
 
     }
 }
+
 
 
 .type-1-hero-item {
@@ -165,11 +183,19 @@
             margin-bottom: toRem(8);
         }
     }
+
+    &__button {
+        @media (max-width:toEm($mobileSmall)) {
+            width: 100%;
+        }
+
+    }
 }
 
 
 .type-2-hero-item {
     color: $grey9;
+    justify-content: flex-start;
 
     >* {
         margin-bottom: toRem(8);
@@ -239,3 +265,136 @@
 
 
 // =========================================
+
+
+
+
+.advantages {
+
+    // .advantages__container
+    // &__container {}
+
+    // .advantages__items
+    &__items {
+        border-radius: toRem(8);
+        background-color: $white;
+        box-shadow: 0 toRem(8) toRem(40) 0 rgba(0, 38, 3, 0.08);
+        @include adaptiveValue("padding", 40, 20);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: toRem(15);
+    }
+
+    // .advantages__item
+    &__item {
+        flex-basis: toRem(230);
+        flex-grow: 1;
+    }
+}
+
+.item-advantages {
+    display: flex;
+    align-items: center;
+    gap: toRem(16);
+
+    // .item-advantages__icon
+    &__icon {
+        flex-shrink: 0;
+        width: toRem(40);
+        aspect-ratio: 1;
+    }
+
+    // .item-advantages__body
+    &__body {
+        display: grid;
+        gap: toRem(8);
+    }
+
+    // .item-advantages__title
+    &__title {
+        @include typography("M", 600);
+        color: $grey9;
+    }
+
+    // .item-advantages__text
+    &__text {
+        @include typography("S");
+        color: $grey4;
+    }
+}
+
+// ============================================
+
+
+.popular {
+
+    // .popular__container
+    &__container {}
+
+    // .popular__header
+    &__header {}
+
+    // .popular__items
+    &__items {
+        @include adaptiveValue("padding-top", 32, 20);
+        @include adaptiveValue("padding-bottom", 50, 30);
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(toRem(200), 1fr));
+        grid-template-rows: auto;
+        gap: toRem(24);
+    }
+
+    // .popular__item
+    &__item {}
+}
+
+
+.item-category {
+    border-radius: toRem(5);
+    border: toRem(1) solid $grey1;
+    background-color: $white;
+    box-shadow: 0 0 toRem(12) 0 rgba(32, 181, 38, 0.32);
+
+    @media (any-hover: hover) and (any-pointer: fine) {
+        &:hover {
+
+            border-color: $successDark;
+
+
+            .item-category__name {
+                color: $successDark;
+            }
+        }
+    }
+
+    // .item-category__link
+    &__link {
+        display: block;
+        padding-inline: toRem(5);
+        padding-block: toRem(16) toRem(24);
+        display: grid;
+        justify-items: center;
+        gap: toRem(16);
+
+    }
+
+    // .item-category__picture
+    &__picture {
+        aspect-ratio: 190 / 130;
+    }
+
+    // .item-category__image
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain
+    }
+
+    // .item-category__name
+    &__name {
+        @include typography("L", 500);
+        color: $grey9;
+    }
+}
