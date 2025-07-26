@@ -509,17 +509,10 @@
         position: fixed;
         z-index: 1;
         height: 100%;
-        // top: 0;
-
-        width: 100%; // ← на всю ширину
+        width: 100%;
         top: 0;
-        left: 0;
-        transform: translateX(100%); // ← зсунули праворуч
-        transition: transform 0.5s ease;
-
-
-        // left: 100%;
-        // transition: left 0.5s;
+        left: 100%;
+        transition: left 0.5s;
         overflow: auto;
         padding: toRem(130) toRem(15) toRem(30) toRem(15);
         background-color: $successDark;
