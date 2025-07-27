@@ -15,7 +15,14 @@
     }
 
     // .page__popular
-    &__popular {}
+    &__popular-categories {
+        @include adaptiveValue("margin-bottom", 50, 30);
+    }
+
+    // .page__popular-products
+    &__popular-products {
+        @include adaptiveValue("margin-bottom", 60, 30);
+    }
 }
 
 
@@ -328,15 +335,15 @@
 // ============================================
 
 
-.popular {
+.popular-categories {
 
-    // .popular__container
-    &__container {}
+    // .popular-categories__container
+    // &__container {}
 
-    // .popular__header
-    &__header {}
+    // .popular-categories__header
+    // &__header {}
 
-    // .popular__items
+    // .popular-categories__items
     &__items {
         @include adaptiveValue("padding-top", 32, 20);
         @include adaptiveValue("padding-bottom", 50, 30);
@@ -344,10 +351,26 @@
         grid-template-columns: repeat(auto-fill, minmax(toRem(200), 1fr));
         grid-template-rows: auto;
         gap: toRem(24);
+
+        @media (max-width:toEm($mobileSmall)) {
+            display: flex;
+            overflow: auto;
+            margin-inline: toRem(-15);
+            padding-left: toRem(15);
+        }
     }
 
-    // .popular__item
-    &__item {}
+    // .popular-categories__item
+    &__item {
+        @media (max-width:toEm($mobileSmall)) {
+            flex-basis: toRem(180);
+            flex-shrink: 0;
+
+            &:last-child {
+                margin-right: toRem(15);
+            }
+        }
+    }
 }
 
 
@@ -355,11 +378,11 @@
     border-radius: toRem(5);
     border: toRem(1) solid $grey1;
     background-color: $white;
-    box-shadow: 0 0 toRem(12) 0 rgba(32, 181, 38, 0.32);
+    transition: all 0.3s ease;
 
     @media (any-hover: hover) and (any-pointer: fine) {
         &:hover {
-
+            box-shadow: 0 0 toRem(12) 0 rgba(32, 181, 38, 0.32);
             border-color: $successDark;
 
 
@@ -372,29 +395,51 @@
     // .item-category__link
     &__link {
         display: block;
-        padding-inline: toRem(5);
-        padding-block: toRem(16) toRem(24);
-        display: grid;
-        justify-items: center;
-        gap: toRem(16);
+        padding-top: toRem(16);
+        padding-bottom: toRem(24);
 
     }
 
     // .item-category__picture
     &__picture {
         aspect-ratio: 190 / 130;
+        padding-inline: toRem(5);
+
+        &:not(:last-child) {
+            margin-block: toRem(16);
+        }
     }
 
     // .item-category__image
     &__image {
         width: 100%;
         height: 100%;
-        object-fit: contain
+        object-fit: contain;
     }
 
     // .item-category__name
     &__name {
+        padding-inline: toRem(5);
+        text-align: center;
         @include typography("L", 500);
         color: $grey9;
+        transition: color 0.3s ease;
     }
 }
+
+// =============================================
+
+
+
+.popular-products {
+
+    // .popular-products__container
+    &__container {}
+
+    // .popular-products__header
+    &__header {}
+}
+
+
+
+// =====================================================
