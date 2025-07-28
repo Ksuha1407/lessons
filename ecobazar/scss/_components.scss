@@ -236,6 +236,10 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(toRem(264), 1fr));
 
+    @media (max-width:toEm($mobileSmall)) {
+        grid-template-columns: repeat(auto-fill, minmax(toRem(150), 1fr));
+    }
+
     // .products__item
     &__item {}
 }
@@ -452,3 +456,52 @@
 }
 
 // ========================================================
+
+.countdown {
+
+    // .countdown__timer
+    &__timer {
+        text-align: center;
+    }
+
+    // .countdown__digits
+    &__digits {
+        display: flex;
+        @include typography("XXL");
+
+        &:not(:last-child) {
+            margin-bottom: toRem(4);
+        }
+
+
+        span {
+            position: relative;
+            flex-grow: 1;
+            flex-basis: toRem(20);
+
+            &:not(:last-child) {
+                &::after {
+                    content: ":";
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    translate: 0 -50%;
+                }
+            }
+        }
+    }
+
+    // .countdown__labels
+    &__labels {
+        display: flex;
+        font-size: toRem(12);
+
+        span {
+            text-transform: uppercase;
+            flex-grow: 1;
+            flex-basis: toRem(20);
+        }
+    }
+}
+
+// ==========================================================
