@@ -5,14 +5,21 @@
 // ==============================================
 
 .page {
-
-    // .page__hero
-    // &__hero {}
-
-    // .page__advantages
-    &__advantages {
+    >* {
         @include adaptiveValue("margin-bottom", 60, 30);
     }
+
+    // >*:last-child {
+    //     margin-bottom: toRem(0);
+    // }
+
+    // .page__hero
+    &__hero {
+        margin-bottom: toRem(0);
+    }
+
+    // .page__advantages
+    &__advantages {}
 
     // .page__popular
     &__popular-categories {
@@ -20,14 +27,10 @@
     }
 
     // .page__popular-products
-    &__popular-products {
-        @include adaptiveValue("margin-bottom", 60, 30);
-    }
+    &__popular-products {}
 
     // .page__sale
-    &__sale {
-        @include adaptiveValue("margin-bottom", 60, 30);
-    }
+    &__sale {}
 }
 
 
@@ -36,7 +39,7 @@
 // Ніколи не використовувати aspect-ratio: та display: flex; разом ніколи!!!
 // ===============================================
 .hero {
-    @include adaptiveValue("padding-block", 23, 15);
+    @include adaptiveValue("padding-block", 24, 15);
 
     // .hero__container
     &__container {
@@ -456,12 +459,9 @@
     // .sale__container
     &__container {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(min(toRem(380), 100%), 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(min(toRem(320), 100%), 1fr));
         gap: toRem(24);
 
-        @media (max-width:toEm($pc)) {
-            grid-template-columns: repeat(auto-fill, minmax(min(toRem(250), 100%), 1fr));
-        }
 
 
     }
@@ -491,7 +491,8 @@
     &__body {
         position: relative;
         z-index: 2;
-        @include adaptiveValue("padding", 35, 15);
+        padding-block: toRem(35);
+        @include adaptiveValue("padding-inline", 35, 15);
 
         >* {
             margin-bottom: toRem(8);
@@ -517,9 +518,7 @@
 
     // .item-sale__info
     &__info {
-        &:not(:last-child) {
-            margin-bottom: toRem(30);
-        }
+        margin-bottom: toRem(30);
     }
 
     // .item-sale__countdown
@@ -553,25 +552,33 @@
     justify-content: center;
     gap: toRem(10);
 
+    &--margin {
+        margin-bottom: toRem(24);
+    }
+
     // .info-sale__label
     &__label {
         @include typography("L");
+
     }
 
     // .info-sale__volue
     &__value {
 
         // .info-sale__volue--yellow
-        &--yellow {
+        &--orange {
             @include typography("XL", 600);
             color: $warning;
         }
 
-        &--background {
+        &--black-label {
             @include typography("L", 600);
             color: $yellow;
             padding: toRem(6) toRem(12);
+            border-radius: toRem(5);
             background-color: $grey9;
         }
     }
 }
+
+// ======================================================
