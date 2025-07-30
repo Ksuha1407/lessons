@@ -100,6 +100,7 @@ function initCoundown(coundown) {
 
 function initCoundownItem(coundownItem) {
     const goalTime = coundownItem.dataset.coundown
+    console.log(goalTime)
     if (goalTime) {
         const coundownItemSpans = coundownItem.querySelectorAll(`.countdown__digits span`)
         const timeNow = Date.now()

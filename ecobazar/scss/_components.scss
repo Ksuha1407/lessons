@@ -6,8 +6,6 @@
 .title {
     color: $grey9;
     @include typography("h5", 600);
-    line-height: 1.5;
-    line-height: 1.2;
 }
 
 // ==================================================
@@ -120,7 +118,7 @@
         @include typography("S", 600);
     }
 
-    &--smoll {
+    &--small {
         padding-inline: toRem(24);
         padding-block: toRem(10);
         @include typography("T", 600);
@@ -213,20 +211,39 @@
 
 .rating {
     display: inline-flex;
-    flex-direction: row-reverse;
+    align-items: center;
     gap: toRem(2);
+
+    &--big {
+        .rating__item {
+            font-size: toRem(15);
+            width: toRem(15);
+        }
+    }
+
+    // .rating__items
+    &__items {
+        display: inline-flex;
+        flex-direction: row-reverse;
+        gap: toRem(2);
+    }
 
     // .rating__item
     &__item {
         appearance: none;
-        background: url("../img/home/popular-products/star.svg") 0 0 no-repeat;
+        background: url("../img/home/popular-products/star.svg") 0 0 / 100% no-repeat;
         width: toRem(10);
         aspect-ratio: 1;
 
         &:checked,
         &:checked~* {
-            background: url("../img/home/popular-products/star-active.svg") 0 0 no-repeat;
+            background: url("../img/home/popular-products/star-active.svg") 0 0 / 100% no-repeat;
         }
+    }
+
+    &__quantity {
+        @include typography("T");
+        color: $grey5;
     }
 }
 
@@ -251,6 +268,45 @@
     position: relative;
     transition: all 0.3s ease;
 
+    &--big {
+
+        @media (min-width:toEm(580)) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .item-products__body {
+            padding: toRem(6) toRem(12) toRem(24);
+            text-align: center;
+            flex-direction: column;
+            gap: toRem(18);
+        }
+
+
+
+        .item-products__prices {
+            justify-content: center;
+        }
+
+        .item-products__title {
+            @include typography("L");
+        }
+
+        .item-products__current {
+            @include typography("XXL", 500);
+        }
+
+        .item-products__old {
+            @include typography("XXL");
+        }
+
+        .item-products__picture {
+            aspect-ratio: 527 / 448;
+        }
+
+
+
+    }
 
     @media (any-hover: hover) and (any-pointer: fine) {
         &:hover {
@@ -271,12 +327,27 @@
                     color: $white;
                 }
 
+
+
             }
 
             .item-products__actions {
                 translate: 0 0;
             }
+
+            .line-actions__add-to-cart {
+                color: $white;
+                background-color: $success;
+
+                &::after {
+                    color: $white;
+                }
+            }
         }
+    }
+
+    &__header {
+        position: relative;
     }
 
     // .item-products__labels
@@ -370,6 +441,8 @@
                 color: $white;
                 background-color: $success;
             }
+
+
         }
     }
 
@@ -453,11 +526,104 @@
 
         }
     }
+
+    // .item-products__line-actions
+    &__line-actions {
+        position: absolute;
+        bottom: toRem(24);
+        left: 0;
+        width: 100%;
+    }
+
+
+
+    &__countdown {
+        max-width: toRem(251);
+        margin: 0 auto;
+
+
+
+    }
+}
+
+
+
+
+.line-actions {
+    display: flex;
+    gap: toRem(8);
+    @include adaptiveValue("padding-inline", 24, 12);
+
+
+    &__add-to-cart {
+        flex-grow: 1;
+        background-color: $grey05;
+        border-radius: toRem(43);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: toRem(12);
+        @include typography("S", 600);
+        color: $grey9;
+        transition: background-color 0.3s ease, color 0.3s ease;
+
+        &::after {
+            content: "\e902";
+            font-size: toRem(15);
+            font-weight: 500;
+            font-family: "iconfont";
+            color: $grey9;
+            transition: color 0.3s ease;
+
+        }
+    }
+
+    // .line-actions__item
+    &__item {
+        background-color: $grey05;
+        border-radius: 50%;
+        width: toRem(46);
+        aspect-ratio: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include typography("L", 500);
+        color: $grey9;
+
+        // .line-actions__item--icon-favorite
+        &--icon-favorite {}
+
+        // .line-actions__item--icon-eye
+        &--icon-eye {}
+    }
 }
 
 // ========================================================
 
 .countdown {
+    &--mini {
+
+        .countdown__labels {
+            color: $grey4;
+            font-size: toRem(10);
+        }
+
+        .countdown__digits {
+            @include typography("L", 500);
+            color: $grey9;
+
+        }
+    }
+
+    &__label {
+        text-align: center;
+        color: $grey4;
+        @include typography("S");
+
+        &:not(:last-child) {
+            margin-bottom: toRem(8);
+        }
+    }
 
     // .countdown__timer
     &__timer {
