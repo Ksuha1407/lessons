@@ -2,7 +2,10 @@
 
 window.addEventListener("load", windowLoad)
 
-let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgentData)
+let isMobile
+function isMobileDevice() {
+    return /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+}
 
 function windowLoad() {
     // Додаємо атрибут data-touch на мобільних
@@ -92,64 +95,97 @@ document.querySelectorAll(".menus-footer__title").forEach(title => {
     })
 })
 
-function initCoundown(coundown) {
-    coundown.forEach(coundownItem => {
-        initCoundownItem(coundownItem)
-    })
-}
 
-function initCoundownItem(coundownItem) {
-    const goalTime = coundownItem.dataset.coundown
-    console.log(goalTime)
-    if (goalTime) {
-        const coundownItemSpans = coundownItem.querySelectorAll(`.countdown__digits span`)
-        const timeNow = Date.now()
-        const timeGoal = Date.parse(goalTime)
+function documentActions(e) {
+    const targetElement = e.target
+    if (isMobile) {
+        if (targetElement.closest('.menu__button')) {
+            const subMenu = targetElement.closest('.menu__button').nextElementSibling
+            if (subMenu) {
+                subMenu.closest('.menu__item').classList.toggle('--active')
+            }
+        } else {
+            const menuItemActive = document.querySelectorAll('.menu__item.--active')
+            if (menuItemActive.length) {
+                menuItemActive.forEach(menuItemActiveItem => {
+                    menuItemActiveItem.classList.remove('--active')
+                });
 
-        let timeLeft
-        setInterval(() => {
-            timeLeft = timeGoal - Date.now()
-
-            coundownItemSpans[0].innerHTML = String(new Date(timeLeft).getDate()).padStart(2, "0")
-            coundownItemSpans[1].innerHTML = String(new Date(timeLeft).getHours()).padStart(2, "0")
-            coundownItemSpans[2].innerHTML = String(new Date(timeLeft).getMinutes()).padStart(2, "0")
-            coundownItemSpans[3].innerHTML = String(new Date(timeLeft).getSeconds()).padStart(2, "0")
-            console.log(new Date(timeLeft).getDate())
-            console.log(new Date(timeLeft).getHours())
-            console.log(new Date(timeLeft).getMinutes())
-            console.log(new Date(timeLeft).getSeconds())
-        }, 1000)
+            }
+        }
+    }
+    if (targetElement.closest('.icon-menu')) {
+        document.body.classList.toggle('scroll-lock')
+        document.documentElement.classList.toggle('open-menu')
+    }
+    if (targetElement.closest('.add-to-cart')) {
+        const button = targetElement.closest('.add-to-cart')
+        const productItem = button.closest('.item-products')
+        const productImage = productItem.querySelector('.item-products__image')
+        const cartHeader = document.querySelector('.cart-header__icon span')
+        flyImage(productImage, cartHeader)
     }
 
 }
 
-// const birthday = new Date("August 19, 1975 23:15:30");
-// const date = birthday.getDate();
+function flyImage(productImage, cartHeader) {
+    const flyImg = document.createElement('img')
+    const speed = +productImage.dataset.speed || 1300
 
-// console.log(date);
-// // Expected output: 19
+    flyImg.src = productImage.src
+    flyImg.style.cssText = `
+		position:absolute;
+		z-index:60;
+		transition-duration:${speed}ms;
+		width: ${productImage.offsetWidth}px;
+		left: ${productImage.getBoundingClientRect().left + scrollX}px;
+		top:${productImage.getBoundingClientRect().top + scrollY}px;
+	`
+    document.body.insertAdjacentElement('beforeend', flyImg)
+
+    flyImg.style.left = `${cartHeader.getBoundingClientRect().left + scrollX}px`
+    flyImg.style.top = `${cartHeader.getBoundingClientRect().top + scrollY}px`
+    flyImg.style.width = `10px`
+    // flyImg.style.opacity = `0.2`
+
+    setTimeout(() => {
+        flyImg.remove()
+        cartHeader.innerHTML = +cartHeader.innerHTML + 1
+    }, speed);
+}
 
 
-// // This example takes 2 seconds to run
-// const start = Date.now();
 
-// console.log("starting timer...");
-// // Expected output: "starting timer..."
+function initCoundown(coundown) {
+    coundown.forEach(coundownItem => {
+        initCoundownItem(coundownItem)
+    });
+}
+function initCoundownItem(coundownItem) {
+    const goalTime = coundownItem.dataset.coundown
+    if (goalTime) {
+        const coundownItemSpans = coundownItem.querySelectorAll('.countdown__digits span')
+        const timeGoal = Date.parse(goalTime)
+        setInterval(() => {
+            let timeLeft = timeGoal - Date.now()
 
-// setTimeout(() => {
-//     const ms = Date.now() - start;
+            const MSECONDS_PER_DAY = 1000 * 60 * 60 * 24
+            const MSECONDS_PER_HOUR = 1000 * 60 * 60
+            const MSECONDS_PER_MIN = 1000 * 60
+            const MSECONDS_PER_SEC = 1000
 
-//     console.log(`seconds elapsed = ${Math.floor(ms / 1000)}`);
-//     // Expected output: "seconds elapsed = 2"
-// }, 2000);
+            const days = Math.floor(timeLeft / MSECONDS_PER_DAY)
+            const hours = Math.floor((timeLeft % MSECONDS_PER_DAY) / MSECONDS_PER_HOUR)
+            const minutes = Math.floor((timeLeft % MSECONDS_PER_HOUR) / MSECONDS_PER_MIN)
+            const seconds = Math.floor((timeLeft % MSECONDS_PER_MIN) / MSECONDS_PER_SEC)
 
-// // Standard date-time string format
-// const unixTimeZero = Date.parse("1970-01-01T00:00:00Z");
-// // Non-standard format resembling toUTCString()
-// const javaScriptRelease = Date.parse("04 Dec 1995 00:12:00 GMT");
+            coundownItemSpans[0].innerHTML = String(days).padStart(2, "0")
+            coundownItemSpans[1].innerHTML = String(hours).padStart(2, "0")
+            coundownItemSpans[2].innerHTML = String(minutes).padStart(2, "0")
+            coundownItemSpans[3].innerHTML = String(seconds).padStart(2, "0")
+        }, 1000)
+    }
+}
 
-// console.log(unixTimeZero);
-// // Expected output: 0
 
-// console.log(javaScriptRelease);
-// // Expected output: 818035920000
+

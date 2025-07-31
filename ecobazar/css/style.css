@@ -690,21 +690,18 @@ label {
   .item-products:hover .item-products__title {
     color: #2c742f;
   }
-  .item-products:hover .item-products__add-to-cart {
+  .item-products:hover .add-to-cart {
     background-color: #00b207;
+    color: #fff;
   }
-  .item-products:hover .item-products__add-to-cart::before {
+  .item-products:hover .add-to-cart::after {
+    color: #fff;
+  }
+  .item-products:hover .add-to-cart::before {
     color: #fff;
   }
   .item-products:hover .item-products__actions {
     translate: 0 0;
-  }
-  .item-products:hover .line-actions__add-to-cart {
-    color: #fff;
-    background-color: #00b207;
-  }
-  .item-products:hover .line-actions__add-to-cart::after {
-    color: #fff;
   }
 }
 .item-products__header {
@@ -957,7 +954,6 @@ label {
   width: 100%;
 }
 .item-products__countdown {
-  max-width: 15.6875rem;
   margin: 0 auto;
 }
 
@@ -1045,6 +1041,8 @@ label {
   font-weight: 500;
   line-height: 1.5;
   color: #1a1a1a;
+  -webkit-transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 @media (min-width: 84.375em) {
   .line-actions__item {
@@ -1059,6 +1057,12 @@ label {
 @media (max-width: 20em) {
   .line-actions__item {
     font-size: 16px;
+  }
+}
+@media (any-hover: hover) and (any-pointer: fine) {
+  .line-actions__item:hover {
+    background-color: #00b207;
+    color: #fff;
   }
 }
 .countdown--mini .countdown__labels {

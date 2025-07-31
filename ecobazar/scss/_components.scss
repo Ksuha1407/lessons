@@ -275,6 +275,7 @@
             grid-row: span 2;
         }
 
+
         .item-products__body {
             padding: toRem(6) toRem(12) toRem(24);
             text-align: center;
@@ -320,29 +321,24 @@
                 color: $successDark;
             }
 
-            .item-products__add-to-cart {
+            .add-to-cart {
                 background-color: $success;
+                color: $white;
+
+                &::after {
+                    color: $white;
+                }
 
                 &::before {
                     color: $white;
                 }
-
-
-
             }
 
             .item-products__actions {
                 translate: 0 0;
             }
 
-            .line-actions__add-to-cart {
-                color: $white;
-                background-color: $success;
 
-                &::after {
-                    color: $white;
-                }
-            }
         }
     }
 
@@ -538,11 +534,8 @@
 
 
     &__countdown {
-        max-width: toRem(251);
+        // max-width: toRem(251);
         margin: 0 auto;
-
-
-
     }
 }
 
@@ -567,6 +560,9 @@
         color: $grey9;
         transition: background-color 0.3s ease, color 0.3s ease;
 
+
+
+
         &::after {
             content: "\e902";
             font-size: toRem(15);
@@ -576,6 +572,8 @@
             transition: color 0.3s ease;
 
         }
+
+
     }
 
     // .line-actions__item
@@ -589,6 +587,14 @@
         align-items: center;
         @include typography("L", 500);
         color: $grey9;
+        transition: background-color 0.3s ease, color 0.3s ease;
+
+        @media (any-hover: hover) and (any-pointer: fine) {
+            &:hover {
+                background-color: $success;
+                color: $white;
+            }
+        }
 
         // .line-actions__item--icon-favorite
         &--icon-favorite {}
