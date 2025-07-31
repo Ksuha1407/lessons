@@ -209,24 +209,27 @@
         }
     }
 
+    &__place-search {
+        flex-basis: toRem(498);
+
+        @media (max-width: toEm($mobile)) {
+            display: none;
+        }
+    }
+
     // .body-header__search
     &__search {
-
-        &:not(.--dynamic) {
-            flex-basis: toRem(498);
-        }
-
+        flex-grow: 1;
 
         @media (min-width: toEm($tablet)) {
             margin-left: toRem(8);
         }
-
-        &.--dynamic {
-            flex-grow: 1;
-        }
     }
 
     // .body-header__actions
+    &__actions {
+        flex-shrink: 0;
+    }
 }
 
 .logo-header {

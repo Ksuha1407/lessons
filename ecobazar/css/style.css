@@ -825,7 +825,14 @@ label {
   }
 }
 .item-products__picture {
-  aspect-ratio: 254/230;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  aspect-ratio: 259/235;
   padding: 0.3125rem;
 }
 .item-products__image {
@@ -875,6 +882,9 @@ label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 0.125rem;
 }
 .item-products__prices:not(:last-child) {
@@ -953,7 +963,11 @@ label {
   left: 0;
   width: 100%;
 }
+.item-products__line-actions:not(:last-child) {
+  margin-bottom: 2.25rem;
+}
 .item-products__countdown {
+  max-width: 15.6875rem;
   margin: 0 auto;
 }
 
@@ -983,7 +997,6 @@ label {
       -ms-flex-positive: 1;
           flex-grow: 1;
   background-color: #f2f2f2;
-  border-radius: 2.6875rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1092,23 +1105,7 @@ label {
 .countdown__label {
   text-align: center;
   color: #999;
-  font-weight: 400;
-  line-height: 1.5;
-}
-@media (min-width: 84.375em) {
-  .countdown__label {
-    font-size: 14px;
-  }
-}
-@media (min-width: 20em) and (max-width: 84.375em) {
-  .countdown__label {
-    font-size: clamp( 14px , 14px  +  0vw , 14px );
-  }
-}
-@media (max-width: 20em) {
-  .countdown__label {
-    font-size: 14px;
-  }
+  font-size: 0.875rem;
 }
 .countdown__label:not(:last-child) {
   margin-bottom: 0.5rem;
@@ -1161,9 +1158,9 @@ label {
   display: -ms-flexbox;
   display: flex;
   font-size: 0.75rem;
+  text-transform: uppercase;
 }
 .countdown__labels span {
-  text-transform: uppercase;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -1499,19 +1496,28 @@ label {
             flex-grow: 1;
   }
 }
-.body-header__search:not(.--dynamic) {
+.body-header__place-search {
   -ms-flex-preferred-size: 31.125rem;
       flex-basis: 31.125rem;
+}
+@media (max-width: 47.99875em) {
+  .body-header__place-search {
+    display: none;
+  }
+}
+.body-header__search {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 @media (min-width: 61.99875em) {
   .body-header__search {
     margin-left: 0.5rem;
   }
 }
-.body-header__search.--dynamic {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+.body-header__actions {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 .logo-header {
