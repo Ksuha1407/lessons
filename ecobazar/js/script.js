@@ -3,7 +3,9 @@
 window.addEventListener('load', windowLoad)
 
 let isMobile
-
+function checkIsMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
 function windowLoad() {
     isMobile = window.navigator.userAgentData.mobile
     isMobile ? document.body.setAttribute('data-touch', '') : null
@@ -119,6 +121,7 @@ function initCoundownItem(coundownItem) {
         const timeGoal = Date.parse(goalTime)
         setInterval(() => {
             let timeLeft = timeGoal - Date.now()
+            if (Math.abs(timeLeft)) { }
 
             const MSECONDS_PER_DAY = 1000 * 60 * 60 * 24
             const MSECONDS_PER_HOUR = 1000 * 60 * 60
