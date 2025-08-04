@@ -397,7 +397,7 @@
 
     // .item-products__actions
     &__actions {
-        translate: toRem(50) 0;
+        translate: toRem(100) 0;
         position: absolute;
         top: toRem(16);
         right: toRem(16);
@@ -684,3 +684,102 @@
 }
 
 // ==========================================================
+
+
+
+.sale-bannar {
+
+    // .sale-bannar__container
+    &__container {}
+
+    // .sale-bannar__body
+    &__body {
+        position: relative;
+        border-radius: toRem(10);
+        overflow: hidden;
+        @include adaptiveValue("padding-block", 60, 20);
+        @include adaptiveValue("padding-inline", 50, 20);
+        display: flex;
+        justify-content: flex-end;
+        background-color: #000;
+
+    }
+
+    // .sale-bannar__content
+    &__content {
+        position: relative;
+        z-index: 2;
+        color: $white;
+
+        @media (min-width:toEm(600)) {
+            max-width: 36.21%;
+        }
+
+
+        >* {
+            margin-bottom: toRem(12);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+
+    }
+
+    // .sale-bannar__title
+    &__title {
+        @include typography("L", 500);
+        text-transform: uppercase;
+        line-height: 1;
+
+    }
+
+    // .sale-bannar__value
+    &__value {
+        @include typography("h1");
+
+        span {
+            font-weight: 600;
+            color: $warning;
+        }
+
+        margin-bottom: toRem(16);
+    }
+
+    // .sale-bannar__text
+    &__text {
+        @include typography("M");
+        opacity: 0.7;
+        @include adaptiveValue("margin-bottom", 28, 16);
+    }
+
+    // .sale-bannar__button
+    &__button {
+        @media (max-width:toEm($mobileSmall)) {
+            width: 100%;
+        }
+    }
+
+    // .sale-bannar__image
+    &__image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+        object-position: left;
+
+        @media (max-width:toEm(1180)) {
+            object-position: center;
+        }
+
+        @media (max-width:toEm(600)) {
+            opacity: 0.3;
+        }
+
+    }
+}
+
+// ============================================================

@@ -114,32 +114,78 @@ function initCoundown(coundown) {
         initCoundownItem(coundownItem)
     });
 }
+
 function initCoundownItem(coundownItem) {
-    const goalTime = coundownItem.dataset.coundown
+    const goalTime = coundownItem.dataset.coundown;
     if (goalTime) {
-        const coundownItemSpans = coundownItem.querySelectorAll('.countdown__digits span')
-        const timeGoal = Date.parse(goalTime)
-        setInterval(() => {
-            let timeLeft = timeGoal - Date.now()
-            if (Math.abs(timeLeft)) { }
+        const coundownItemSpans = coundownItem.querySelectorAll('.countdown__digits span');
+        const intervalId = setInterval(() => {
+            let timeLeft = Date.parse(goalTime) - Date.now();
 
-            const MSECONDS_PER_DAY = 1000 * 60 * 60 * 24
-            const MSECONDS_PER_HOUR = 1000 * 60 * 60
-            const MSECONDS_PER_MIN = 1000 * 60
-            const MSECONDS_PER_SEC = 1000
+            if (timeLeft <= 0) {
+                clearInterval(intervalId);
+                coundownItemSpans.forEach(span => span.innerHTML = "00");
 
-            const days = Math.floor(timeLeft / MSECONDS_PER_DAY)
-            const hours = Math.floor((timeLeft % MSECONDS_PER_DAY) / MSECONDS_PER_HOUR)
-            const minutes = Math.floor((timeLeft % MSECONDS_PER_HOUR) / MSECONDS_PER_MIN)
-            const seconds = Math.floor((timeLeft % MSECONDS_PER_MIN) / MSECONDS_PER_SEC)
+                // Створюємо або оновлюємо повідомлення
+                let message = coundownItem.querySelector('.countdown-message');
+                if (!message) {
+                    message = document.createElement('div');
+                    message.classList.add('countdown-message');
+                    message.style.marginTop = '10px';
+                    message.style.color = '#f00';
+                    message.style.fontWeight = 'bold';
+                    message.textContent = "Time is up!";
+                    coundownItem.appendChild(message);
+                }
+                return;
+            }
 
-            coundownItemSpans[0].innerHTML = String(days).padStart(2, "0")
-            coundownItemSpans[1].innerHTML = String(hours).padStart(2, "0")
-            coundownItemSpans[2].innerHTML = String(minutes).padStart(2, "0")
-            coundownItemSpans[3].innerHTML = String(seconds).padStart(2, "0")
-        }, 1000)
+            const MSECONDS_PER_DAY = 1000 * 60 * 60 * 24;
+            const MSECONDS_PER_HOUR = 1000 * 60 * 60;
+            const MSECONDS_PER_MIN = 1000 * 60;
+            const MSECONDS_PER_SEC = 1000;
+
+            const days = Math.floor(timeLeft / MSECONDS_PER_DAY);
+            const hours = Math.floor((timeLeft % MSECONDS_PER_DAY) / MSECONDS_PER_HOUR);
+            const minutes = Math.floor((timeLeft % MSECONDS_PER_HOUR) / MSECONDS_PER_MIN);
+            const seconds = Math.floor((timeLeft % MSECONDS_PER_MIN) / MSECONDS_PER_SEC);
+
+            coundownItemSpans[0].innerHTML = String(days).padStart(2, "0");
+            coundownItemSpans[1].innerHTML = String(hours).padStart(2, "0");
+            coundownItemSpans[2].innerHTML = String(minutes).padStart(2, "0");
+            coundownItemSpans[3].innerHTML = String(seconds).padStart(2, "0");
+        }, 1000);
     }
 }
+
+
+
+
+// function initCoundownItem(coundownItem) {
+//     const goalTime = coundownItem.dataset.coundown
+//     if (goalTime) {
+//         const coundownItemSpans = coundownItem.querySelectorAll('.countdown__digits span')
+//         const timeGoal = Date.parse(goalTime)
+//         setInterval(() => {
+//             let timeLeft = timeGoal - Date.now()
+
+//             const MSECONDS_PER_DAY = 1000 * 60 * 60 * 24
+//             const MSECONDS_PER_HOUR = 1000 * 60 * 60
+//             const MSECONDS_PER_MIN = 1000 * 60
+//             const MSECONDS_PER_SEC = 1000
+
+//             const days = Math.floor(timeLeft / MSECONDS_PER_DAY)
+//             const hours = Math.floor((timeLeft % MSECONDS_PER_DAY) / MSECONDS_PER_HOUR)
+//             const minutes = Math.floor((timeLeft % MSECONDS_PER_HOUR) / MSECONDS_PER_MIN)
+//             const seconds = Math.floor((timeLeft % MSECONDS_PER_MIN) / MSECONDS_PER_SEC)
+
+//             coundownItemSpans[0].innerHTML = String(days).padStart(2, "0")
+//             coundownItemSpans[1].innerHTML = String(hours).padStart(2, "0")
+//             coundownItemSpans[2].innerHTML = String(minutes).padStart(2, "0")
+//             coundownItemSpans[3].innerHTML = String(seconds).padStart(2, "0")
+//         }, 1000)
+//     }
+// }
 
 
 // Footer акордеон
