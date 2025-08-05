@@ -29,12 +29,15 @@ function dynamicAdaptHeader() {
     const actionsHeader = document.querySelector('.actions-header')
     const placeSearch = document.querySelector('.body-header__place-search')
 
-    const media = window.matchMedia("(max-width: 767.98px)")
+    if (header) {
+        const media = window.matchMedia("(max-width: 767.98px)")
 
-    media.addEventListener("change", (e) => {
+        media.addEventListener("change", (e) => {
+            dynamicAdaptHeaderInit(media)
+        })
         dynamicAdaptHeaderInit(media)
-    })
-    dynamicAdaptHeaderInit(media)
+    }
+
 
     function dynamicAdaptHeaderInit(media) {
         if (media.matches) {

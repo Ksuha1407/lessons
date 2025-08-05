@@ -40,6 +40,9 @@
 
     // .page__featured-products
     &__featured-products {}
+
+    // .page__news
+    &__news {}
 }
 
 
@@ -681,3 +684,20 @@
 }
 
 // =======================================================
+
+
+
+.latest-news {
+
+    // .latest-news__container
+    &__container {}
+
+    // .latest-news__header
+    &__header {}
+
+    // .latest-news__items
+    &__items {}
+
+    // .latest-news__item
+    &__item {}
+}
