@@ -106,6 +106,12 @@ $responsiveType: 1;
 }
 }
 
+
+
+
+
+// Типографічний міксин
+// Параметри:
 @mixin typography($size: "S", $weight: 400, $adapt: 1, $sizeMob: 0) {
     $fontSize: 14;
     $fontSizeMob: 14;
@@ -209,4 +215,54 @@ $responsiveType: 1;
 
     font-weight: $fontWeight;
     line-height: $lineHeight;
+}
+
+// Міксін interaction — універсальний hover/active для ПК і мобілок
+@mixin interaction($hover: null,
+    $activeDesktop: null,
+    $activeMobile: null,
+    $hoverReuse: true) {
+
+    // --- ПК: hover та active ---
+    @media (any-hover: hover) and (pointer: fine) {
+        & {
+            @if $hover {
+                &:hover {
+                    @include _inject-styles($hover);
+                }
+            }
+
+            @if $activeDesktop {
+                &:active {
+                    @include _inject-styles($activeDesktop);
+                }
+            }
+        }
+    }
+
+    // --- Мобілка: active ---
+    @if $activeMobile or ($hoverReuse and $hover) {
+        @media (any-hover: none) and (pointer: coarse) {
+            & {
+                &:active {
+                    @include _inject-styles(if($activeMobile, $activeMobile, $hover));
+                }
+            }
+        }
+    }
+}
+
+// Допоміжний міксін для вставки стилів з карти
+@mixin _inject-styles($map) {
+    @each $key, $value in $map {
+        @if type-of($value)=="map" {
+            #{ $key } {
+                @include _inject-styles($value);
+            }
+        }
+
+        @else {
+            #{ $key }: #{$value};
+        }
+    }
 }

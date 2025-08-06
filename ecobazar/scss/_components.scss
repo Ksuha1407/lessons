@@ -83,6 +83,9 @@
             }
         }
 
+        &.swiper-button-lock {
+            display: none;
+        }
 
         @media (any-hover: hover) and (any-pointer: fine) {
             &:hover {
@@ -91,6 +94,8 @@
                 border-color: $success;
             }
         }
+
+
     }
 }
 

@@ -16,6 +16,7 @@ function windowLoad() {
     coundown.length ? initCoundown(coundown) : null
 
     dynamicAdaptHeader();
+    slidersInit()
 }
 function dynamicAdaptHeader() {
     const topHeader = document.querySelector('.top-header')
@@ -161,34 +162,43 @@ function initCoundownItem(coundownItem) {
     }
 }
 
+// Ініціалізація слайдерів
+function slidersInit() {
+    const sliderReviews = new Swiper('.slider-reviews', {
+        // Нескінченний слайдер
+        loop: true,
+        // кількість слайдів для відображення
+        slidesPerView: 3,
+        // Відступ між слайдами
+        spaceBetween: 24,
+        // Адаптивність
+        breakpoints: {
+            320: {
+                slidesPerView: 1.1,
+                spaceBetween: 15,
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            1050: {
+                slidesPerView: 3,
+                spaceBetween: 24,
+            }
+        },
+        // Navigation arrows
+        navigation: {
+            nextEl: '.block-header__slider-arrow--right',
+            prevEl: '.block-header__slider-arrow--left',
+        },
+
+    });
+
+
+}
 
 
 
-// function initCoundownItem(coundownItem) {
-//     const goalTime = coundownItem.dataset.coundown
-//     if (goalTime) {
-//         const coundownItemSpans = coundownItem.querySelectorAll('.countdown__digits span')
-//         const timeGoal = Date.parse(goalTime)
-//         setInterval(() => {
-//             let timeLeft = timeGoal - Date.now()
-
-//             const MSECONDS_PER_DAY = 1000 * 60 * 60 * 24
-//             const MSECONDS_PER_HOUR = 1000 * 60 * 60
-//             const MSECONDS_PER_MIN = 1000 * 60
-//             const MSECONDS_PER_SEC = 1000
-
-//             const days = Math.floor(timeLeft / MSECONDS_PER_DAY)
-//             const hours = Math.floor((timeLeft % MSECONDS_PER_DAY) / MSECONDS_PER_HOUR)
-//             const minutes = Math.floor((timeLeft % MSECONDS_PER_HOUR) / MSECONDS_PER_MIN)
-//             const seconds = Math.floor((timeLeft % MSECONDS_PER_MIN) / MSECONDS_PER_SEC)
-
-//             coundownItemSpans[0].innerHTML = String(days).padStart(2, "0")
-//             coundownItemSpans[1].innerHTML = String(hours).padStart(2, "0")
-//             coundownItemSpans[2].innerHTML = String(minutes).padStart(2, "0")
-//             coundownItemSpans[3].innerHTML = String(seconds).padStart(2, "0")
-//         }, 1000)
-//     }
-// }
 
 
 // Footer акордеон
