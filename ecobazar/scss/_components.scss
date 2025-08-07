@@ -256,11 +256,9 @@
 
 .products {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(toRem(264), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(toRem(250), 1fr));
 
-    @media (max-width:toEm($mobileSmall)) {
-        grid-template-columns: repeat(auto-fill, minmax(toRem(150), 1fr));
-    }
+
 
     // .products__item
     &__item {}
@@ -322,21 +320,17 @@
 
 
 
-            .item-products__title {
-                color: $successDark;
-            }
-
             .add-to-cart {
                 background-color: $success;
                 color: $white;
 
-                &::after {
-                    color: $white;
-                }
-
                 &::before {
                     color: $white;
                 }
+            }
+
+            .item-products__title {
+                color: $successDark;
             }
 
             .item-products__actions {
@@ -375,8 +369,6 @@
 
         // .item-products__label--sale
         &--sale {
-            display: inline-flex;
-            gap: toRem(4);
             background-color: $error;
 
 
@@ -563,24 +555,17 @@
     &__add-to-cart {
         flex-grow: 1;
         background-color: $grey05;
-        // border-radius: toRem(43);
         display: flex;
         justify-content: center;
         align-items: center;
         gap: toRem(12);
-        @include typography("S", 600);
         color: $grey9;
         transition: background-color 0.3s ease, color 0.3s ease;
-
-
-
 
         &::after {
             content: "\e902";
             font-size: toRem(15);
-            font-weight: 500;
             font-family: "iconfont";
-            color: $grey9;
             transition: color 0.3s ease;
 
         }
@@ -597,7 +582,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        @include typography("L", 500);
         color: $grey9;
         transition: background-color 0.3s ease, color 0.3s ease;
 

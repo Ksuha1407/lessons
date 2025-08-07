@@ -164,36 +164,37 @@ function initCoundownItem(coundownItem) {
 
 // Ініціалізація слайдерів
 function slidersInit() {
-    const sliderReviews = new Swiper('.slider-reviews', {
-        // Нескінченний слайдер
-        loop: true,
-        // кількість слайдів для відображення
-        slidesPerView: 3,
-        // Відступ між слайдами
-        spaceBetween: 24,
-        // Адаптивність
-        breakpoints: {
-            320: {
-                slidesPerView: 1.1,
-                spaceBetween: 15,
+    if (document.querySelector('.slider-reviews')) {
+        const sliderReviews = new Swiper('.slider-reviews', {
+            // Нескінченний слайдер
+            loop: true,
+            // кількість слайдів для відображення
+            slidesPerView: 3,
+            // Відступ між слайдами
+            spaceBetween: 24,
+            // Адаптивність
+            breakpoints: {
+                320: {
+                    slidesPerView: 1.1,
+                    spaceBetween: 15,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                1050: {
+                    slidesPerView: 3,
+                    spaceBetween: 24,
+                }
             },
-            768: {
-                slidesPerView: 2,
-                spaceBetween: 20,
+            // Navigation arrows
+            navigation: {
+                nextEl: '.block-header__slider-arrow--right',
+                prevEl: '.block-header__slider-arrow--left',
             },
-            1050: {
-                slidesPerView: 3,
-                spaceBetween: 24,
-            }
-        },
-        // Navigation arrows
-        navigation: {
-            nextEl: '.block-header__slider-arrow--right',
-            prevEl: '.block-header__slider-arrow--left',
-        },
 
-    });
-
+        });
+    }
 
 }
 

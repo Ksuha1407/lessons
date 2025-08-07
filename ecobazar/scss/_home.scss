@@ -46,6 +46,9 @@
 
     // .page__reviews
     &__reviews {}
+
+    // .page__partners
+    &__partners {}
 }
 
 
@@ -812,4 +815,58 @@
     }
 
 
+}
+
+// =======================================================
+
+
+
+.partners {
+
+    @include adaptiveValue("padding-block", 60, 30);
+
+    // .partners__container
+    &__container {}
+
+
+    // .partners__list
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        row-gap: toRem(20);
+    }
+
+    // .partners__item
+    &__item {
+        text-align: center;
+        padding-inline: 5%;
+        flex-grow: 1;
+        border-right: toRem(1) solid $grey1;
+
+        &:first-child {
+            padding-left: toRem(0);
+        }
+
+        &:last-child {
+            border-right: none;
+            padding-right: toRem(0);
+        }
+
+    }
+
+    // .partners__link
+    &__link {
+        filter: grayscale(1);
+        opacity: 0.4;
+        transition: all 0.3s ease;
+
+        @media (any-hover: hover) and (any-pointer: fine) {
+            &:hover {
+                filter: grayscale(0);
+                opacity: 1;
+            }
+        }
+    }
 }
