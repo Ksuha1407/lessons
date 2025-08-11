@@ -31,18 +31,16 @@
 		],
 		"description": "Add toRem"
 	},
-	"Include Interaction Mixin (Cursor in Hover)": {
+	"Hover Media Query Empty": {
 		"prefix": "mh",
 		"body": [
-			"@include interaction(",
-			"  $hover: (",
-			"    $0",
-			"  ),",
-			"  $activeDesktop: (),",
-			"  $activeMobile: ()",
-			");"
+			"@media (any-hover: hover) and (any-pointer: fine) {",
+			"    &:hover {",
+			"        $0",
+			"    }",
+			"}"
 		],
-		"description": "Вставка @include interaction з курсором у $hover"
+		"description": "Порожній медіазапит для hover з курсором всередині"
 	},
 	"md1": {
 		"prefix": "md1",
