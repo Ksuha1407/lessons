@@ -265,11 +265,31 @@
 }
 
 .item-products {
-    overflow: hidden;
-    outline: toRem(1) solid $grey1;
     background-color: $white;
     position: relative;
-    transition: all 0.3s ease;
+    margin: toRem(0) toRem(-1) toRem(-1) toRem(0);
+    border: toRem(1) solid $grey1;
+    // outline: toRem(1) solid $grey1;
+
+    &::before {
+        content: "";
+        pointer-events: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        top: toRem(-1);
+        left: toRem(-1);
+        right: toRem(-1);
+        bottom: toRem(-1);
+        opacity: 0;
+        z-index: 2;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 toRem(12) 0 rgba(32, 181, 38, 0.32);
+        border: toRem(1) solid $successDark;
+        // outline: toRem(1) solid $successDark;
+    }
 
     &--big {
 
@@ -314,10 +334,11 @@
 
     @media (any-hover: hover) and (any-pointer: fine) {
         &:hover {
-            z-index: 2;
-            outline: toRem(1) solid $successDark;
-            box-shadow: 0 0 toRem(5) toRem(2) rgba(0, 0, 0, 0.08);
 
+
+            &::before {
+                opacity: 1;
+            }
 
 
             .add-to-cart {
@@ -333,7 +354,7 @@
                 color: $successDark;
             }
 
-            .item-products__actions {
+            .item-products__action {
                 translate: 0 0;
             }
 
@@ -394,24 +415,25 @@
 
     // .item-products__actions
     &__actions {
-        translate: toRem(100) 0;
+        overflow: hidden;
+
         position: absolute;
         top: toRem(16);
-        right: toRem(16);
+        right: toRem(0);
+        padding-right: toRem(16);
         display: flex;
         flex-direction: column;
         gap: toRem(6);
         transition: translate 0.3s ease;
 
-        [data-touch] & {
-            translate: 0 0;
-        }
+
     }
 
 
 
     // .item-products__action
     &__action {
+        translate: toRem(100) 0;
         border: toRem(1) solid $grey05;
         background-color: $white;
         border-radius: 50%;
@@ -421,13 +443,13 @@
         justify-content: center;
         align-items: center;
         @include typography("L", 500);
+        transition: all 0.3s ease;
         color: $grey9;
 
-        // .item-products__action--icon-favorite
-        &--icon-favorite {}
 
-        // .item-products__action--icon-eye
-        &--icon-eye {}
+        [data-touch] & {
+            translate: 0 0;
+        }
 
         @media (any-hover: hover) and (any-pointer: fine) {
             &:hover {
