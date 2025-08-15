@@ -87,6 +87,9 @@ function documentActions(e) {
 
 }
 
+
+
+
 function flyImage(productImage, cartHeader) {
     const flyImg = document.createElement('img')
     const speed = +productImage.dataset.speed || 1300
