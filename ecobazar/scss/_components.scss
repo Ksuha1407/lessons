@@ -5,19 +5,24 @@
 // =================================================
 .title {
     color: $grey9;
+    line-height: 1.5;
     @include typography("h5", 600);
+
+    &--big {
+        @include typography("h2", 600);
+    }
 }
 
-// ==================================================
+//========================================================================================================================================================
 .link-arrow {
-    @include typography("M", 500);
-    line-height: 1.5;
     color: $success;
+    line-height: 1.5;
+    @include typography("M", 500);
     display: inline-flex;
     flex-direction: row-reverse;
-    align-items: center;
     gap: toRem(12);
-    transition: color 0.3s ease;
+    align-items: center;
+    transition: color 0.3s;
 
     &::before {
         content: "\e900";
@@ -29,11 +34,10 @@
         &:hover {
             color: $successDark;
         }
-
     }
 }
 
-// ==================================================
+//========================================================================================================================================================
 .block-header {
     display: flex;
     flex-wrap: wrap;
@@ -41,21 +45,23 @@
     gap: toRem(10);
 
     &--margin {
-        margin-bottom: toRem(32);
+        @include adaptiveValue("margin-bottom", 32, 15);
     }
 
+    // .block-header--center
     &--center {
         text-align: center;
     }
 
     // .block-header__title
-
     &__title {
         flex-grow: 1;
     }
 
-    // &__link {}
+    // .block-header__link
+    &__link {}
 
+    // .block-header__slider-arrows
     &__slider-arrows {
         display: flex;
         flex-shrink: 0;
@@ -63,7 +69,6 @@
     }
 
     // .block-header__slider-arrow
-
     &__slider-arrow {
         width: toRem(45);
         aspect-ratio: 1;
@@ -75,13 +80,23 @@
         align-items: center;
         @include typography("M");
         color: $grey9;
-        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        transition:
+            background-color 0.3s,
+            color 0.3s,
+            border-color 0.3s;
 
+        // .block-header__slider-arrow--left
         &--left {
             &::before {
                 transform: rotate(-180deg);
             }
         }
+
+        // .block-header__slider-arrow--icon-arrow
+        &--icon-arrow {}
+
+        // .block-header__slider-arrow--right
+        &--right {}
 
         &.swiper-button-lock {
             display: none;
@@ -94,48 +109,44 @@
                 border-color: $success;
             }
         }
-
-
     }
 }
 
-// ===================================================
+//========================================================================================================================================================
 .button {
-    display: inline-flex;
+    border-radius: toRem(43);
     padding-inline: toRem(40);
     padding-block: toRem(16);
-    justify-content: center;
-    align-items: center;
-    border-radius: toRem(43);
     background-color: $success;
     @include typography("M", 600);
     color: $white;
-    transition: all 0.3s ease;
+    transition:
+        background-color 0.3s,
+        color 0.3s;
 
     &--white {
-        color: $success;
         background-color: $white;
+        color: $success;
     }
 
     &--middle {
-        padding-inline: toRem(32);
-        padding-block: toRem(14.12);
         @include typography("S", 600);
+        padding-inline: toRem(32);
+        padding-block: toRem(14.11);
     }
 
     &--small {
+        @include typography("T", 600);
         padding-inline: toRem(24);
         padding-block: toRem(10);
-        @include typography("T", 600);
     }
 
     &--arrow {
         display: inline-flex;
+        justify-content: center;
         flex-direction: row-reverse;
         align-items: center;
-        justify-content: center;
         gap: toRem(12);
-
 
         &::before {
             content: "\e900";
@@ -148,16 +159,14 @@
         display: inline-flex;
         justify-content: center;
         flex-direction: row-reverse;
+        align-items: center;
         gap: toRem(12);
-        @include typography("S", 600);
-        background-color: $success;
-        color: $white;
 
         &::before {
             content: "\e919";
+            line-height: 1 !important;
             font-family: "iconfont";
             @include typography("L");
-            line-height: 1 !important;
         }
     }
 
@@ -167,13 +176,10 @@
             background-color: $successDark;
         }
     }
-
 }
 
-// ===================================================
-
+//========================================================================================================================================================
 .icon-menu {
-
     @media (min-width: toEm($mobile)) {
         display: none;
     }
@@ -188,7 +194,7 @@
         &::before,
         &::after {
             content: "";
-            transition: all 0.5s ease;
+            transition: all 0.5s;
             position: absolute;
             height: toRem(2);
             width: 100%;
@@ -221,29 +227,26 @@
             }
 
             &::after {
-                bottom: 50%;
                 rotate: 45deg;
                 translate: 0 50%;
+                bottom: 50%;
             }
         }
     }
 }
 
-// ===================================================
-
+//========================================================================================================================================================
 .rating {
     display: inline-flex;
     align-items: center;
-    gap: toRem(2);
+    gap: toRem(5);
 
     &--big {
         .rating__item {
-            font-size: toRem(15);
             width: toRem(15);
         }
     }
 
-    // .rating__items
     &__items {
         display: inline-flex;
         flex-direction: row-reverse;
@@ -252,14 +255,14 @@
 
     // .rating__item
     &__item {
-        appearance: none;
-        background: url("../img/home/popular-products/star.svg") 0 0 / 100% no-repeat;
         width: toRem(10);
         aspect-ratio: 1;
+        appearance: none;
+        background: url("../img/icons/star.svg") 0 0 / 100% no-repeat;
 
         &:checked,
         &:checked~* {
-            background: url("../img/home/popular-products/star-active.svg") 0 0 / 100% no-repeat;
+            background: url("../img/icons/star-active.svg") 0 0 / 100% no-repeat;
         }
     }
 
@@ -269,84 +272,75 @@
     }
 }
 
-// ======================================================
-
+//========================================================================================================================================================
 .products {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(toRem(250), 1fr));
-
-
 
     // .products__item
     &__item {}
 }
 
 .item-products {
-    background-color: $white;
+    margin: 0 toRem(-1) toRem(-1) 0;
     position: relative;
-    margin: toRem(0) toRem(-1) toRem(-1) toRem(0);
+    background-color: $white;
+    transition: all 0.3s;
     border: toRem(1) solid $grey1;
 
-    // outline: toRem(1) solid $grey1;
     .catalog & {
         margin: 0;
         border-radius: toRem(8);
-
     }
 
-
+    // outline: toRem(1) solid $grey1;
     &::before {
         content: "";
         pointer-events: none;
         position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
+        // width: 100%;
+        // height: 100%;
+        // left: 0;
+        // top: 0;
         top: toRem(-1);
         left: toRem(-1);
         right: toRem(-1);
         bottom: toRem(-1);
-        opacity: 0;
         z-index: 2;
-        transition: all 0.3s ease;
+        opacity: 0;
+        transition: all 0.3s;
         box-shadow: 0 0 toRem(12) 0 rgba(32, 181, 38, 0.32);
         border: toRem(1) solid $successDark;
-
         // outline: toRem(1) solid $successDark;
+
         .catalog & {
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
             border-radius: toRem(8);
-
         }
     }
 
     &--big {
-
-        @media (min-width:toEm(580)) {
+        @media (min-width: toEm(580)) {
             grid-column: span 2;
             grid-row: span 2;
         }
 
-
         .item-products__body {
-            padding: toRem(6) toRem(12) toRem(24);
-            text-align: center;
+            padding: toRem(12) toRem(12) toRem(24) toRem(12);
             flex-direction: column;
+            text-align: center;
             gap: toRem(18);
-        }
-
-
-
-        .item-products__prices {
-            justify-content: center;
         }
 
         .item-products__title {
             @include typography("L");
+        }
+
+        .item-products__prices {
+            justify-content: center;
         }
 
         .item-products__current {
@@ -360,19 +354,13 @@
         .item-products__picture {
             aspect-ratio: 527 / 448;
         }
-
-
-
     }
 
     @media (any-hover: hover) and (any-pointer: fine) {
         &:hover {
-
-
             &::before {
                 opacity: 1;
             }
-
 
             .add-to-cart {
                 background-color: $success;
@@ -390,8 +378,6 @@
             .item-products__action {
                 translate: 0 0;
             }
-
-
         }
     }
 
@@ -399,96 +385,83 @@
         position: relative;
     }
 
-    // .item-products__labels
+    // .products-item__labels
     &__labels {
-        position: absolute;
-        top: toRem(16);
-        left: toRem(16);
         display: flex;
         flex-wrap: wrap;
         gap: toRem(8);
+        top: toRem(16);
+        left: toRem(16);
+        position: absolute;
     }
 
-    // .item-products__label
+    // .products-item__label
     &__label {
         padding: toRem(3) toRem(8);
-        border-radius: toRem(4);
         color: $white;
+        border-radius: toRem(4);
         @include typography("S");
-        transition: background-color 0.3s ease, color 0.3s ease;
+        transition: background-color 0.3s;
 
         span {
             font-weight: 500;
         }
 
-        // .item-products__label--sale
+        // .products-item__label--sale
         &--sale {
             background-color: $error;
 
-
-
             @media (any-hover: hover) and (any-pointer: fine) {
                 &:hover {
-                    background-color: #ad3f3d;
+                    background-color: #aa3634;
                 }
             }
         }
 
-        // .item-products__label--best
+        // .products-item__label--best
         &--best {
             background-color: $blue;
 
             @media (any-hover: hover) and (any-pointer: fine) {
                 &:hover {
-                    background-color: #175baa;
+                    background-color: #1757a0;
                 }
             }
         }
 
         &--out {
             background-color: $grey9;
-
-            @media (any-hover: hover) and (any-pointer: fine) {
-                &:hover {
-                    color: $warning;
-                }
-            }
+            color: $white;
         }
     }
 
-    // .item-products__actions
+    // .products-item__actions
     &__actions {
         overflow: hidden;
-
+        display: flex;
+        flex-direction: column;
+        gap: toRem(6);
         position: absolute;
         top: toRem(16);
         right: toRem(0);
         padding-right: toRem(16);
-        display: flex;
-        flex-direction: column;
-        gap: toRem(6);
-        transition: translate 0.3s ease;
-
-
+        transition: translate 0.3s;
     }
 
-
-
-    // .item-products__action
+    // .products-item__action
     &__action {
         translate: toRem(100) 0;
-        border: toRem(1) solid $grey05;
         background-color: $white;
+        border: toRem(1) solid $grey05;
         border-radius: 50%;
         width: toRem(40);
         aspect-ratio: 1;
         display: flex;
         justify-content: center;
         align-items: center;
-        @include typography("L", 500);
-        transition: all 0.3s ease;
+        @include typography("XL");
+        transition: all 0.3s;
         color: $grey9;
-
 
         [data-touch] & {
             translate: 0 0;
@@ -496,110 +469,108 @@
 
         @media (any-hover: hover) and (any-pointer: fine) {
             &:hover {
-                color: $white;
                 background-color: $success;
+                color: $white;
             }
-
-
         }
     }
 
-    // .item-products__picture
+    // .products-item__picture
     &__picture {
         display: flex;
         flex-direction: column;
-        aspect-ratio: 259 / 235;
         padding: toRem(5);
+        aspect-ratio: 259 / 235;
     }
 
-    // .item-products__image
+    // .products-item__image
     &__image {
         width: 100%;
         height: 100%;
         object-fit: contain;
     }
 
-    // .item-products__body
+    // .products-item__body
     &__body {
         padding: toRem(12);
         display: flex;
-        align-items: center;
         gap: toRem(10);
+        align-items: center;
     }
 
-    // .item-products__content
+    // .products-item__content
     &__content {
         flex-grow: 1;
     }
 
-    // .item-products__title
+    // .products-item__title
     &__title {
-        @include typography("S");
         color: $grey7;
-        transition: color 0.3s ease;
+        transition: color 0.3s;
+        @include typography("S");
     }
 
-    // .item-products__prices
+    // .products-item__link-title
+    &__link-title {}
+
+    // .products-item__prices
     &__prices {
         display: flex;
-        align-items: center;
         gap: toRem(2);
+        align-items: center;
 
         &:not(:last-child) {
             margin-bottom: toRem(6);
         }
     }
 
-    // .item-products__current
+    // .products-item__current
     &__current {
         @include typography("M", 500);
-        color: $grey9
+        color: $grey9;
     }
 
-    // .item-products__old
+    // .products-item__old
     &__old {
         @include typography("M");
-        color: $grey4;
         text-decoration: line-through;
+        color: $grey4;
     }
 
+    // .products-item__rating
+    &__rating {}
 
-
-    // .item-products__add-to-cart
+    // .products-item__add-to-cart
     &__add-to-cart {
+        transition: background-color 0.3s;
+        width: toRem(40);
+        aspect-ratio: 1;
         background-color: $grey05;
         border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
-        width: toRem(40);
-        aspect-ratio: 1;
-        transition: background-color 0.3s ease;
 
         &::before {
-            content: "\e902";
-            font-size: toRem(15);
-            font-weight: 500;
-            font-family: "iconfont";
+            transition: color 0.3s;
             color: $grey9;
-            transition: color 0.3s ease;
-
+            font-size: toRem(15);
+            content: "\e902";
+            font-family: "iconfont";
         }
     }
 
-    // .item-products__line-actions
+    // .products-item__line-actions
     &__line-actions {
         position: absolute;
+        width: 100%;
         bottom: toRem(24);
         left: 0;
-        width: 100%;
 
         &:not(:last-child) {
             margin-bottom: toRem(36);
         }
     }
-
-
 
     &__countdown {
         max-width: toRem(251);
@@ -607,47 +578,48 @@
     }
 }
 
-
-
-
 .line-actions {
     display: flex;
     gap: toRem(8);
-    @include adaptiveValue("padding-inline", 24, 12);
-
+    @include adaptiveValue("padding-inline", 24, 15);
 
     &__add-to-cart {
+        color: $grey9;
         flex-grow: 1;
+        transition:
+            color 0.3s,
+            background-color 0.3s;
         background-color: $grey05;
         display: flex;
         justify-content: center;
         align-items: center;
         gap: toRem(12);
-        color: $grey9;
-        transition: background-color 0.3s ease, color 0.3s ease;
 
         &::after {
-            content: "\e902";
+            transition: color 0.3s;
             font-size: toRem(15);
+            content: "\e902";
             font-family: "iconfont";
-            transition: color 0.3s ease;
-
         }
-
-
     }
 
     // .line-actions__item
     &__item {
-        background-color: $grey05;
-        border-radius: 50%;
+        color: $grey9;
         width: toRem(46);
         aspect-ratio: 1;
+        border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
-        color: $grey9;
-        transition: background-color 0.3s ease, color 0.3s ease;
+        background-color: $grey05;
+        transition: all 0.3s;
+
+        // .line-actions__item--icon-favorite
+        &--icon-favorite {}
+
+        // .line-actions__item--icon-eye
+        &--icon-eye {}
 
         @media (any-hover: hover) and (any-pointer: fine) {
             &:hover {
@@ -655,36 +627,29 @@
                 color: $white;
             }
         }
-
-        // .line-actions__item--icon-favorite
-        &--icon-favorite {}
-
-        // .line-actions__item--icon-eye
-        &--icon-eye {}
     }
 }
 
-// ========================================================
+.add-to-cart {}
 
+//========================================================================================================================================================
 .countdown {
     &--mini {
+        .countdown__digits {
+            @include typography("L", 500);
+            color: $grey9;
+        }
 
         .countdown__labels {
             color: $grey4;
             font-size: toRem(10);
         }
-
-        .countdown__digits {
-            @include typography("L", 500);
-            color: $grey9;
-
-        }
     }
 
     &__label {
         text-align: center;
-        color: $grey4;
         font-size: toRem(14);
+        color: $grey4;
 
         &:not(:last-child) {
             margin-bottom: toRem(8);
@@ -705,7 +670,6 @@
             margin-bottom: toRem(4);
         }
 
-
         span {
             position: relative;
             flex-grow: 1;
@@ -715,8 +679,8 @@
                 &::after {
                     content: ":";
                     position: absolute;
-                    top: 50%;
                     right: 0;
+                    top: 50%;
                     translate: 0 -50%;
                 }
             }
@@ -736,38 +700,32 @@
     }
 }
 
-// ==========================================================
+//========================================================================================================================================================
+.sale-banner {
 
-
-
-.sale-bannar {
-
-    // .sale-bannar__container
+    // .sale-banner__container
     &__container {}
 
-    // .sale-bannar__body
+    // .sale-banner__body
     &__body {
         position: relative;
         border-radius: toRem(10);
         overflow: hidden;
-        @include adaptiveValue("padding-block", 60, 20);
-        @include adaptiveValue("padding-inline", 50, 20);
-        display: flex;
-        justify-content: flex-end;
         background-color: #000;
 
+        // display: flex;
+        // justify-content: flex-end;
+
+        @include adaptiveValue("padding-block", 60, 20);
+        @include adaptiveValue("padding-inline", 50, 20);
     }
 
-    // .sale-bannar__content
+    // .sale-banner__content
     &__content {
+        margin: 0 0 0 auto;
+
         position: relative;
         z-index: 2;
-        color: $white;
-
-        @media (min-width:toEm(600)) {
-            max-width: 36.21%;
-        }
-
 
         >* {
             margin-bottom: toRem(12);
@@ -777,19 +735,22 @@
             }
         }
 
-
+        @media (min-width: toEm(600)) {
+            max-width: 36.147541%;
+        }
     }
 
-    // .sale-bannar__title
+    // .sale-banner__title
     &__title {
+        color: $white;
         @include typography("L", 500);
         text-transform: uppercase;
         line-height: 1;
-
     }
 
-    // .sale-bannar__value
+    // .sale-banner__value
     &__value {
+        color: $white;
         @include typography("h1");
 
         span {
@@ -800,21 +761,20 @@
         margin-bottom: toRem(16);
     }
 
-    // .sale-bannar__text
+    // .sale-banner__text
     &__text {
         @include typography("M");
-        opacity: 0.7;
-        @include adaptiveValue("margin-bottom", 28, 16);
+        @include adaptiveValue("margin-bottom", 28, 15);
     }
 
-    // .sale-bannar__button
+    // .sale-banner__button
     &__button {
-        @media (max-width:toEm($mobileSmall)) {
+        @media (max-width: toEm(600)) {
             width: 100%;
         }
     }
 
-    // .sale-bannar__image
+    // .sale-banner__image
     &__image {
         position: absolute;
         width: 100%;
@@ -824,24 +784,22 @@
         object-fit: cover;
         object-position: left;
 
-        @media (max-width:toEm(1180)) {
+        @media (max-width: toEm(1180)) {
+            // opacity: 0.5;
             object-position: center;
         }
 
-        @media (max-width:toEm(600)) {
+        @media (max-width: toEm(600)) {
             opacity: 0.3;
         }
-
     }
 }
 
-// ============================================================
-
+//========================================================================================================================================================
 .news-items {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(toRem(320), 100%), 1fr));
     gap: toRem(24);
-
+    grid-template-columns: repeat(auto-fill, minmax(min(toRem(320), 100%), 1fr));
 }
 
 .news-item {
@@ -850,15 +808,14 @@
     outline: toRem(1) solid $grey1;
     background-color: $white;
     display: flex;
+    transition: all 0.3s;
     flex-direction: column;
-    transition: all 0.3s ease;
 
     @media (any-hover: hover) and (any-pointer: fine) {
         &:hover {
             outline: toRem(1) solid transparent;
             box-shadow: 0 toRem(20) toRem(50) 0 rgba(0, 0, 0, 0.08);
         }
-
     }
 
     // .news-item__header
@@ -866,6 +823,7 @@
         position: relative;
         aspect-ratio: 424 / 324;
         overflow: hidden;
+        background-color: $grey05;
     }
 
     // .news-item__image-link
@@ -879,7 +837,7 @@
         top: 0;
         left: 0;
         object-fit: cover;
-        transition: scale 0.5s ease;
+        transition: scale 0.8s;
 
         @media (any-hover: hover) and (any-pointer: fine) {
             &:hover {
@@ -891,63 +849,63 @@
     // .news-item__date
     &__date {
         position: absolute;
+        @include typography("XL", 500);
         @include adaptiveValue("left", 24, 10);
         @include adaptiveValue("bottom", 24, 10);
-        width: toRem(58);
-        aspect-ratio: 1;
         background-color: $white;
-        border-radius: toRem(4);
-        z-index: 1;
-        display: inline-flex;
+        border-radius: toRem(8);
+        display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
-        @include typography("XL", 500);
+        padding: toRem(5);
+        aspect-ratio: 1;
+        width: toRem(58);
         color: $grey9;
 
         small {
-            @include typography("S", 500);
-            color: $grey5;
+            @include typography("T", 500);
             text-transform: uppercase;
+            color: $grey5;
         }
     }
 
     // .news-item__body
     &__body {
+        flex-grow: 1;
         @include adaptiveValue("padding", 24, 15);
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        flex-grow: 1;
-
 
         >* {
             margin-bottom: toRem(8);
+
+            &:last-child {
+                margin-bottom: toRem(0);
+            }
         }
     }
 
     // .news-item__tags
     &__tags {
         display: flex;
-        align-items: center;
         flex-wrap: wrap;
         gap: toRem(5) toRem(16);
-
-
     }
 
     // .news-item__tag
     &__tag {
+        color: $grey7;
+        @include typography("S");
         display: flex;
         align-items: center;
-        gap: toRem(4);
-        @include typography("S");
-        color: $grey6;
-        transition: color 0.3s ease;
+        gap: toRem(3);
+        transition: color 0.3s;
 
         &::before {
+            transition: color 0.3s;
             color: $grey3;
-            font-size: toRem(20);
-            transition: color 0.3s ease;
         }
 
         @media (any-hover: hover) and (any-pointer: fine) {
@@ -959,21 +917,18 @@
                 }
             }
         }
-
     }
 
     // .news-item__title
     &__title {
-        margin-bottom: toRem(24);
         flex-grow: 1;
+        margin-bottom: toRem(20);
     }
 
     // .news-item__link-title
     &__link-title {
+        transition: color 0.3s;
         @include typography("L", 500);
-        color: $grey9;
-        transition: color 0.3s ease;
-
 
         @media (any-hover: hover) and (any-pointer: fine) {
             &:hover {
@@ -986,8 +941,7 @@
     &__arrow-link {}
 }
 
-// ============================================================
-
+//========================================================================================================================================================
 .subscribe {
     background-color: $grey15;
     @include adaptiveValue("padding-block", 40, 25);
@@ -999,21 +953,14 @@
         row-gap: toRem(20);
         @include adaptiveValue("column-gap", 40, 25);
 
-        @media (max-width:toEm($tablet)) {
+        @media (max-width: toEm($tablet)) {
             flex-wrap: wrap;
-
-            .subscribe__text {
-                max-width: 100%;
-            }
         }
-
     }
 
     // .subscribe__content
     &__content {
         flex-grow: 1;
-        display: grid;
-        gap: toRem(4);
     }
 
     // .subscribe__title
@@ -1027,49 +974,46 @@
         @include typography("S");
         color: $grey4;
 
-        @media (min-width:toEm(900)) {
+        @media (min-width: toEm(900)) {
             max-width: toRem(450);
         }
     }
 
     // .subscribe__form
     &__form {
-        display: flex;
-        align-items: center;
         border-radius: toRem(46);
         border: toRem(1) solid $grey1;
         background-color: $white;
+        display: flex;
         min-width: min(toRem(375), 100%);
         flex-basis: 42.7%;
 
-        @media (max-width:toEm(900)) {
+        @media (max-width: toEm(900)) {
             flex-grow: 1;
         }
 
-        @media (max-width:toEm(440)) {
+        @media (max-width: toEm(440)) {
             flex-direction: column;
-            gap: toRem(8);
+            gap: toRem(5);
             border-radius: toRem(46);
             background-color: transparent;
             border: none;
         }
-
     }
 
     // .subscribe__input
     &__input {
         padding-inline: toRem(24);
         flex-grow: 1;
-        height: toRem(52);
         border-radius: toRem(46) 0 0 toRem(46);
-        @include typography("M");
+        height: toRem(52);
         color: $grey9;
+        @include typography("M");
 
         &::placeholder {
             color: $grey5;
-            transition: opacity 0.3s ease;
+            transition: all 0.2s;
         }
-
 
         &:focus {
             &::placeholder {
@@ -1077,29 +1021,21 @@
             }
         }
 
-        @media (max-width:toEm(440)) {
+        @media (max-width: toEm(440)) {
             border: toRem(1) solid $grey1;
             background-color: $white;
             border-radius: toRem(46);
         }
-
     }
 
     // .subscribe__button
-    &__button {
-        @media (max-width:toEm(440)) {
-            width: 100%;
-        }
-    }
+    &__button {}
 
     // .subscribe__social
     &__social {}
-
-
 }
 
-
-
+//========================================================================================================================================================
 .social {
     display: flex;
     // flex-wrap: wrap;
@@ -1114,16 +1050,15 @@
 
     // .social__link
     &__link {
+        width: toRem(40);
+        aspect-ratio: 1;
+        border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
-        border-radius: 50%;
-        aspect-ratio: 1;
-        width: toRem(40);
-        @include typography("L");
         color: $grey7;
-        transition: background-color 0.3s ease, color 0.3s ease;
-
+        @include typography("L");
+        transition: all 0.3s;
 
         @media (any-hover: hover) and (any-pointer: fine) {
             &:hover {
@@ -1134,14 +1069,13 @@
     }
 }
 
-// ============================================================
-
+//========================================================================================================================================================
 .breadcrumbs {
     background-color: $grey9;
     position: relative;
 
     &--margin {
-        @include adaptiveValue("margin-bottom", 32, 15);
+        @include adaptiveValue("margin-bottom", 32, 20);
     }
 
     // .breadcrumbs__container
@@ -1154,47 +1088,46 @@
         overflow: auto;
         position: relative;
         z-index: 2;
+        gap: toRem(8);
         display: flex;
         align-items: center;
-        gap: toRem(8);
         @include adaptiveValue("padding-block", 50, 15);
     }
 
     // .breadcrumbs__item
     &__item {
         display: flex;
-        align-items: center;
         gap: toRem(8);
+        align-items: center;
         @include typography("M");
 
-        &:not(:first-child)::before {
-            content: "\e912";
-            font-family: "iconfont";
-            rotate: -90deg;
-            color: $grey5;
-            font-size: toRem(6);
+        &:not(:last-child) {
+            &::after {
+                rotate: -90deg;
+                font-size: toRem(6);
+                font-family: "iconfont";
+                content: "\e912";
+            }
         }
     }
 
     // .breadcrumbs__link
     &__link {
         color: $grey4;
+        transition: color 0.3s;
 
         // .breadcrumbs__link--icon-home
         &--icon-home {
-            @include typography("L");
             color: $grey5;
         }
 
         @media (any-hover: hover) and (any-pointer: fine) {
-
             &:hover {
                 color: $white;
             }
         }
     }
 
-    // .breadcrumbs__current
     &__current {
         color: $success;
     }
@@ -1209,19 +1142,17 @@
         object-fit: cover;
         object-position: right;
 
-        @media (max-width:toEm(1200)) {
+        @media (max-width: toEm(1290)) {
             opacity: 0.2;
         }
     }
 }
 
-// ============================================================
-
+//========================================================================================================================================================
 .pages {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: toRem(12);
 
     // .pages__item
     &__item {
@@ -1229,18 +1160,17 @@
 
         &:first-child,
         &:last-child {
-            border: toRem(1) solid $grey1;
             border-radius: 50%;
             overflow: hidden;
             color: $grey9;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s;
+            border: toRem(1) solid $grey1;
 
             @media (any-hover: hover) and (any-pointer: fine) {
                 &:hover {
                     background-color: $grey1;
                 }
             }
-
         }
 
         &:first-child {
@@ -1249,11 +1179,11 @@
         }
 
         &:last-child {
-            margin-left: toRem(12);
             rotate: -90deg;
+            margin-left: toRem(12);
         }
 
-        @media (max-width:toEm($mobileSmall)) {
+        @media (max-width: toEm($mobileSmall)) {
 
             &:nth-child(5),
             &:nth-child(6) {
@@ -1264,27 +1194,27 @@
 
     // .pages__link
     &__link {
-        @include typography("M", 600);
+        @include typography("M");
         display: flex;
         justify-content: center;
         align-items: center;
         width: toRem(36);
-        aspect-ratio: 1;
         border-radius: 50%;
-        transition: color 0.3s ease;
+        aspect-ratio: 1;
+        transition: color 0.3s;
 
         &::before {
             font-size: toRem(7.5);
         }
 
         @media (any-hover: hover) and (any-pointer: fine) {
-            &:not(.pages__link--curent):hover {
+            &:not(.pages__link--current):hover {
                 color: $grey9;
             }
         }
 
-        // .pages__link--curent
-        &--curent {
+        // .pages__link--current
+        &--current {
             background-color: $success;
             color: $white;
         }
