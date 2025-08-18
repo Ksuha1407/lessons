@@ -14,6 +14,8 @@ function windowLoad() {
 
     const coundown = document.querySelectorAll('[data-coundown]')
     coundown.length ? initCoundown(coundown) : null
+    const priceFilter = document.querySelector('.price-filter')
+    priceFilter ? priceFilteInit() : null
 
     dynamicAdaptHeader();
     dynamicAdaptFilter()
@@ -231,8 +233,21 @@ function slidersInit() {
     }
 
 }
+function priceFilteInit() {
+    const priceFilterSlider = document.querySelector('.price-filter__slider')
 
-
+    noUiSlider.create(priceFilterSlider, {
+        start: [20, 80],
+        connect: true,
+        range: {
+            'min': 0,
+            'max': 100
+        }
+    })
+    const priceValue = document.querySelector(`.price-filter__value`)
+    const priceInputFrom = document.querySelector(`.price-filter__from`)
+    const priceInputTo = document.querySelector(`.price-filter__to`)
+}
 
 
 

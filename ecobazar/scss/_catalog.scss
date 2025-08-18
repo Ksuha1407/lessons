@@ -12,7 +12,7 @@
 
     // .catalog__form
     &__form {
-        overflow: clip;
+        // overflow: clip;
     }
 
     // .catalog__filter
@@ -184,11 +184,14 @@
     &__body {}
 
     // .filter__item
-    &__item {}
+    &__item {
+        margin-bottom: toRem(20);
+    }
 }
 
 .item-filter {
-
+    padding-bottom: toRem(20);
+    border-bottom: toRem(1) solid $grey1;
 
     // .item-filter__header
     &__header {
@@ -202,19 +205,25 @@
         gap: toRem(10);
 
         &::after {
+            transition: rotate 0.2s ease;
             content: "\e912";
             font-family: "iconfont";
             font-size: toRem(10);
         }
 
-        margin-bottom: toRem(20);
+
     }
 
     // .item-filter__body
-    &__body {}
+    &__body {
+        padding-top: toRem(20);
+    }
 
     // .item-filter__categories
     &__categories {}
+
+    // .item-filter__price
+    &__price {}
 
     &[open] {
         .item-filter__header {
@@ -226,8 +235,6 @@
     }
 
 }
-
-
 
 .categories-filter {
     display: flex;
@@ -298,4 +305,39 @@
             color: $grey5;
         }
     }
+
+}
+
+
+
+.price-filter {
+
+    // .price-filter__slider
+    &__slider {}
+
+    // .price-filter__info
+    &__info {
+        padding-top: toRem(16);
+        display: flex;
+        align-items: center;
+        gap: toRem(5);
+    }
+
+    // .price-filter__label
+    &__label {
+        @include typography("S");
+        color: $grey7;
+    }
+
+    // .price-filter__value
+    &__value {
+        @include typography("S", 500);
+        color: $grey9;
+    }
+
+    // .price-filter__from
+    &__from {}
+
+    // .price-filter__to
+    &__to {}
 }

@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/nouislider.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Catalog - Ecobazar</title>
 </head>
@@ -221,6 +221,24 @@
                                                 <input class="categories-filter__input" type="radio" name="form[category]" value="Bread & Bakery">
                                                 <span class="categories-filter__text">Bread & Bakery <span>(15)</span></span>
                                             </label>
+                                        </div>
+                                    </div>
+                                </details>
+                            </div>
+                            <div class="filter__body">
+                                <details open class="filter__item item-filter">
+                                    <summary class="item-filter__header">Price</summary>
+                                    <div class="item-filter__body">
+                                        <div class="item-filter__price price-filter">
+                                            <div class="price-filter__slider"></div>
+                                            <div class="price-filter__info">
+                                                <div class="price-filter__label">Price:</div>
+                                                <div class="price-filter__value">
+                                                    <span>50</span> - <span>1,500</span>
+                                                </div>
+                                                <input type="hidden" name="form[price-from]" class="price-filter__from">
+                                                <input type="hidden" name="form[price-to]" class="price-filter__to">
+                                            </div>
                                         </div>
                                     </div>
                                 </details>
@@ -823,7 +841,7 @@
     <script>
 
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/nouislider.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 
