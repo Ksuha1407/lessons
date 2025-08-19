@@ -266,6 +266,11 @@
         }
     }
 
+    &__value {
+        @include typography("S");
+        color: $grey9;
+    }
+
     &__quantity {
         @include typography("T");
         color: $grey5;

@@ -78,6 +78,7 @@
 
     // .header-catalog__filter
     &__filter {
+        transition: all 0.3s;
         flex-basis: toRem(312);
 
         @media (max-width: toEm($mobile)) {
@@ -86,6 +87,7 @@
 
         @media (min-width:toEm($tablet)) {
             margin-left: toRem(-332);
+            visibility: hidden;
         }
     }
 
@@ -308,8 +310,6 @@
 
 }
 
-
-
 .price-filter {
 
     // .price-filter__slider
@@ -340,4 +340,89 @@
 
     // .price-filter__to
     &__to {}
+}
+
+
+.rating-filter {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: toRem(20);
+
+    // .rating-filter__item
+    &__item {
+        display: inline-flex;
+        align-items: center;
+        gap: toRem(8);
+
+        &::before {
+            content: "";
+            width: toRem(20);
+            aspect-ratio: 1;
+            border: toRem(1) solid $grey2;
+            border-radius: toRem(3);
+        }
+
+        &:has(.rating-filter__input:focus-visible) {
+            outline: toRem(1) solid $grey9;
+        }
+
+        &:has(.rating-filter__input:checked) {
+            &::before {
+                background-color: $success;
+                border-color: $success;
+                font-family: "iconfont";
+                content: "\e903";
+                color: $white;
+                font-size: toRem(9);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+
+    // .rating-filter__input
+    &__input {
+        appearance: none;
+        position: absolute;
+        width: 0;
+        left: 0;
+        opacity: 0;
+    }
+
+    // .rating-filter__label
+    &__label {}
+
+
+    // .rating-filter__body
+    &__body {
+        display: flex;
+
+        gap: toRem(5);
+    }
+
+    // .rating-filter__items
+    &__items {
+        display: flex;
+        flex-direction: row-reverse;
+        gap: toRem(3);
+    }
+
+    // .rating-filter__star
+    &__star {
+        width: toRem(14);
+        background: url("../img/icons/star.svg") 0 0 / 100% no-repeat;
+
+        &--active,
+        &--active~* {
+            background: url("../img/icons/star-active.svg") 0 0 / 100% no-repeat;
+        }
+    }
+
+    // .rating-filter__value
+    &__value {
+        color: $grey9;
+        @include typography("S");
+    }
 }

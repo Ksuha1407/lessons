@@ -237,16 +237,23 @@ function priceFilteInit() {
     const priceFilterSlider = document.querySelector('.price-filter__slider')
 
     noUiSlider.create(priceFilterSlider, {
-        start: [20, 80],
+        start: [50, 1500],
         connect: true,
         range: {
             'min': 0,
-            'max': 100
+            'max': 1500
         }
     })
     const priceValue = document.querySelector(`.price-filter__value`)
     const priceInputFrom = document.querySelector(`.price-filter__from`)
     const priceInputTo = document.querySelector(`.price-filter__to`)
+
+
+    priceFilterSlider.noUiSlider.on('update', function (values) {
+        priceValue.innerHTML = values.join(' - ')
+        priceInputFrom.values = values[0]
+        priceInputTo.values = values[1]
+    })
 }
 
 
