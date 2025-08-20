@@ -361,6 +361,25 @@
         }
     }
 
+    &--mini {
+        display: flex;
+        align-items: center;
+
+        .item-products__picture {
+            padding: toRem(5);
+            width: toRem(102);
+            aspect-ratio: 1;
+        }
+
+        .item-products__image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+
+    }
+
     @media (any-hover: hover) and (any-pointer: fine) {
         &:hover {
             &::before {
