@@ -121,8 +121,6 @@ function documentActions(e) {
 }
 
 
-
-
 function flyImage(productImage, cartHeader) {
     const flyImg = document.createElement('img')
     const speed = +productImage.dataset.speed || 1300
@@ -230,6 +228,37 @@ function slidersInit() {
             },
 
         });
+    }
+    if (document.querySelector(`.gallery-product`)) {
+        const sliderProductThumbs = new Swiper('.thumbs-gallery-product__slider', {
+            direction: "vertical",
+            loop: true,
+            slidesPerView: 4,
+            spaceBetween: 12,
+            // breakpoints: {
+            //     320: {
+            //         slidesPerView: 1.1,
+            //         spaceBetween: 15,
+            //     },
+            //     768: {
+            //         slidesPerView: 2,
+            //         spaceBetween: 20,
+            //     },
+            //     1050: {
+            //         slidesPerView: 3,
+            //         spaceBetween: 24,
+            //     }
+            // },
+            navigation: {
+                nextEl: '.thumbs-gallery-product__arrow--down',
+                prevEl: '.thumbs-gallery-product__arrow--up',
+            },
+            // autoHeight: true,
+        })
+
+        // const sliderProductMain = new Swiper('.main-gallery-product', {
+
+        // })
     }
 
 }
