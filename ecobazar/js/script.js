@@ -117,7 +117,9 @@ function documentActions(e) {
         const cartHeader = document.querySelector('.cart-header__icon span')
         flyImage(productImage, cartHeader)
     }
-
+    // if (targetElement.closest('.thumbs-gallery-product__slide')) {
+    //     const thumbSlide = targetElement.closest('.thumbs-gallery-product__slide')
+    // }
 }
 
 
@@ -230,6 +232,7 @@ function slidersInit() {
         });
     }
     if (document.querySelector(`.gallery-product`)) {
+
         const sliderProductThumbs = new Swiper('.thumbs-gallery-product__slider', {
             direction: "vertical",
             loop: true,
@@ -253,15 +256,47 @@ function slidersInit() {
                 nextEl: '.thumbs-gallery-product__arrow--down',
                 prevEl: '.thumbs-gallery-product__arrow--up',
             },
-            // autoHeight: true,
+            // для синхронізації краще вимкнути freeMode
+            // watchSlidesProgress: true, // дозволяє відслідковувати активний слайд
+        })
+        const sliderProductMain = new Swiper('.main-gallery-product', {
+            loop: true,
+            speed: 300,
+            slidesPerView: 1,
+            effect: "fade",
+            zoom: {
+                enable: true,
+                maxRatio: 3,
+                panOnMouseMove: false,
+            },
+            thumbs: {
+                swiper: sliderProductThumbs,
+            },
+
         })
 
-        // const sliderProductMain = new Swiper('.main-gallery-product', {
+        // sliderProductThumbs.on('click', function (e) {
+        //     const clickedSlide = e.clickedSlide
+        //     if (clickedSlide) {
+        //         const clickedIndex = +clickedSlide.dataset.swiperSlideIndex
+        //         sliderProductMain.slideTo(clickedIndex, 300)
 
+        //         const activeSlide = document.querySelector(`.thumbs-gallery-product__slide.active`)
+        //         activeSlide ? activeSlide.classList.remove(`active`) : null
+        //         clickedSlide.classList.add(`active`)
+        //     }
         // })
+
+        // const activeSlide = document.querySelector(`.thumbs-gallery-product__slide.swiper-slide-active`)
+        // activeSlide ? activeSlide.classList.add(`active`) : null
+
+        // sliderProductThumbs.controller.control = sliderProductMain
+        // sliderProductMain.controller.control = sliderProductThumbs
     }
 
 }
+
+
 function priceFilteInit() {
     const priceFilterSlider = document.querySelector('.price-filter__slider')
 
