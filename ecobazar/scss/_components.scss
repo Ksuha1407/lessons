@@ -245,6 +245,11 @@
         .rating__item {
             width: toRem(15);
         }
+
+        .rating__quantity {
+            @include typography("S");
+            color: $grey6;
+        }
     }
 
     &__items {
@@ -274,6 +279,16 @@
     &__quantity {
         @include typography("T");
         color: $grey5;
+    }
+}
+
+a.rating__quantity {
+    transition: color 0.3s ease;
+
+    @media (any-hover: hover) and (any-pointer: fine) {
+        &:hover {
+            color: $successDark;
+        }
     }
 }
 
