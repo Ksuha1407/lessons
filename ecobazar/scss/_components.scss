@@ -308,7 +308,8 @@ a.rating__quantity {
     transition: all 0.3s;
     border: toRem(1) solid $grey1;
 
-    .catalog & {
+    .catalog &,
+    .product & {
         margin: 0;
         border-radius: toRem(8);
     }
@@ -669,7 +670,7 @@ a.rating__quantity {
     }
 }
 
-.add-to-cart {}
+
 
 //========================================================================================================================================================
 .countdown {
@@ -1257,5 +1258,147 @@ a.rating__quantity {
             background-color: $success;
             color: $white;
         }
+    }
+}
+
+// ========================================================================================================================================================
+.quantity {
+    display: flex;
+    border-radius: toRem(170);
+    border: toRem(1) solid $grey05;
+    padding: toRem(8);
+    justify-content: space-between;
+
+    // .quantity__button
+    &__button {
+        width: toRem(34);
+        flex-shrink: 0;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background-color: $grey1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: toRem(10);
+        transition: color 0.3s, background-color 0.3s;
+
+        // .quantity__button--icon-minus
+        &--icon-minus {
+            font-size: toRem(2);
+            color: $grey6;
+        }
+
+        // .quantity__button--icon-plus
+        &--icon-plus {
+            font-size: toRem(12);
+            color: $grey9;
+        }
+
+        @media (any-hover: hover) and (any-pointer: fine) {
+            &:hover {
+                background-color: $successDark;
+                color: $white;
+            }
+        }
+    }
+
+    // .quantity__input
+    &__input {
+        appearance: none;
+        @include typography("M", 500);
+        color: $grey9;
+        text-align: center;
+        padding-inline: toRem(5);
+        width: toRem(40);
+
+        @media (max-width:toEm(550)) {
+            max-width: toRem(150);
+            flex-grow: 1;
+        }
+    }
+
+    // Прибираємо стрілки у інпута типу number
+    input::-webkit-inner-spin-button,
+    input::-webkit-outer-spin-button {
+
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+}
+
+// ========================================================================================================================================================
+.wiget {
+    width: 100%;
+
+    @media (min-width:toEm($tablet)) {
+        max-width: toRem(536);
+    }
+
+    // .wiget__video
+    &__video {
+        border-radius: toRem(6);
+        overflow: hidden;
+        aspect-ratio: 536 / 300;
+
+        &:not(:last-child) {
+            margin-bottom: toRem(20);
+        }
+    }
+
+    // .wiget__items
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: start;
+        gap: toRem(22);
+        border: toRem(1) solid $grey1;
+        border-radius: toRem(6);
+        padding: toRem(24) toRem(20);
+    }
+
+    // .wiget__item
+    &__item {
+        display: flex;
+        flex-basis: toRem(200);
+        gap: toRem(12);
+        flex-grow: 1;
+        align-items: start;
+    }
+
+    // .wiget__picture
+    &__picture {
+        min-height: toRem(47);
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+    }
+
+    // .wiget__icon
+    &__icon {
+
+        align-self: center;
+    }
+
+    // .wiget__body
+    &__body {}
+
+    // .wiget__title
+    &__title {
+        @include typography("S", 500);
+        color: $grey9;
+
+        &:not(:last-child) {
+            margin-bottom: toRem(6);
+        }
+    }
+
+    // .wiget__text
+    &__text {
+        @include typography("T");
+        color: $grey5;
     }
 }

@@ -171,31 +171,6 @@
             <section class="product__body body-product">
                 <div class="body-product__container">
                     <div class="body-product__gallery gallery-product">
-                        <div class="gallery-product__thumbs thumbs-gallery-product">
-                            <div class="thumbs-gallery-product__slider swiper">
-                                <div class="thumbs-gallery-product__wrapper swiper-wrapper">
-                                    <div class="thumbs-gallery-product__slide swiper-slide">
-                                        <img class="thumbs-gallery-product__image" src="img/product/gallery/image_01.jpg" alt="Image">
-                                    </div>
-                                    <div class="thumbs-gallery-product__slide swiper-slide">
-                                        <img class="thumbs-gallery-product__image" src="img/product/gallery/image_02.jpg" alt="Image">
-                                    </div>
-                                    <div class="thumbs-gallery-product__slide swiper-slide">
-                                        <img class="thumbs-gallery-product__image" src="img/product/gallery/image_03.jpg" alt="Image">
-                                    </div>
-                                    <div class="thumbs-gallery-product__slide swiper-slide">
-                                        <img class="thumbs-gallery-product__image" src="img/product/gallery/image_04.jpg" alt="Image">
-                                    </div>
-                                    <div class="thumbs-gallery-product__slide swiper-slide">
-                                        <img class="thumbs-gallery-product__image" src="img/product/gallery/image_01.jpg" alt="Image">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="thumbs-gallery-product__arrows">
-                                <button class="thumbs-gallery-product__arrow thumbs-gallery-product__arrow--up"></button>
-                                <button class="thumbs-gallery-product__arrow thumbs-gallery-product__arrow--down"></button>
-                            </div>
-                        </div>
                         <div class="gallery-product__main main-gallery-product swiper">
                             <div class="main-gallery-product__wrapper swiper-wrapper">
                                 <div class="main-gallery-product__slide swiper-slide">
@@ -223,6 +198,31 @@
                                         <img class="main-gallery-product__image" src="img/product/gallery/image_01.jpg" alt="Image">
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="gallery-product__thumbs thumbs-gallery-product">
+                            <div class="thumbs-gallery-product__slider swiper">
+                                <div class="thumbs-gallery-product__wrapper swiper-wrapper">
+                                    <div class="thumbs-gallery-product__slide swiper-slide">
+                                        <img class="thumbs-gallery-product__image" src="img/product/gallery/image_01.jpg" alt="Image">
+                                    </div>
+                                    <div class="thumbs-gallery-product__slide swiper-slide">
+                                        <img class="thumbs-gallery-product__image" src="img/product/gallery/image_02.jpg" alt="Image">
+                                    </div>
+                                    <div class="thumbs-gallery-product__slide swiper-slide">
+                                        <img class="thumbs-gallery-product__image" src="img/product/gallery/image_03.jpg" alt="Image">
+                                    </div>
+                                    <div class="thumbs-gallery-product__slide swiper-slide">
+                                        <img class="thumbs-gallery-product__image" src="img/product/gallery/image_04.jpg" alt="Image">
+                                    </div>
+                                    <div class="thumbs-gallery-product__slide swiper-slide">
+                                        <img class="thumbs-gallery-product__image" src="img/product/gallery/image_01.jpg" alt="Image">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="thumbs-gallery-product__arrows">
+                                <button class="thumbs-gallery-product__arrow thumbs-gallery-product__arrow--up"></button>
+                                <button class="thumbs-gallery-product__arrow thumbs-gallery-product__arrow--down"></button>
                             </div>
                         </div>
                     </div>
@@ -282,20 +282,205 @@
                         <form action="#" class="content-product__actions actions-product">
                             <div class="actions-product__quantity quantity">
                                 <button type="button" class="quantity__button quantity__button--icon-minus"></button>
-                                <input type="text" class="quantity__input">
+                                <input value="1" type="number" class="quantity__input">
                                 <button type="button" class="quantity__button quantity__button--icon-plus"></button>
                             </div>
-                            <button type="submit" class="actions-product__button button button--big">Add to Cart</button>
+                            <button type="submit" class="actions-product__button button">Add to Cart</button>
+                            <a href="#" class="actions-product__favorite actions-product__favorite--icon-favorite"></a>
                         </form>
+                        <div class="content-product__navigation navigation-product">
+                            <div class="navigation-product__item">
+                                <div class="navigation-product__label">Category:</div>
+                                <a href="#" class="navigation-product__link">Vegetables</a>
+                            </div>
+                            <div class="navigation-product__item">
+                                <div class="navigation-product__label">Tag:</div>
+                                <ul class="navigation-product__tags">
+                                    <li class="navigation-product__tag"><a href="#" class="navigation-product__link">Vegetables</a></li>
+                                    <li class="navigation-product__tag"><a href="#" class="navigation-product__link">Healthy</a></li>
+                                    <li class="navigation-product__tag"><a href="#" class="navigation-product__link">Chinese</a></li>
+                                    <li class="navigation-product__tag"><a href="#" class="navigation-product__link">Cabbage</a></li>
+                                    <li class="navigation-product__tag"><a href="#" class="navigation-product__link">Green Cabbage</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
             <div class="product__tabs tabs-product">
                 <div class="tabs-product__container">
+                    <ul class="tabs-product__nav-items">
+                        <li class="tabs-product__nav-item">
+                            <button type="button" class="tabs-product__button tabs-product__button--active">Descriptions</button>
+                        </li>
+                        <li class="tabs-product__nav-item">
+                            <button type="button" class="tabs-product__button">Additional Information</button>
+                        </li>
+                        <li class="tabs-product__nav-item">
+                            <button type="button" class="tabs-product__button">Customer Feedback</button>
+                        </li>
+                    </ul>
+                    <div class="tabs-product__body body-tabs-product">
+                        <div class="body-tabs-product__item">
+                            <div class="body-tabs-product__description description-tab">
+                                <div class="description-tab__content">
+                                    <p>Sed commodo aliquam dui ac porta. Fusce ipsum felis, imperdiet at posuere ac, viverra at mauris. Maecenas tincidunt ligula a sem vestibulum pharetra. Maecenas auctor tortor lacus, nec laoreet nisi porttitor vel. Etiam tincidunt metus vel dui interdum sollicitudin. Mauris sem ante, vestibulum nec orci vitae, aliquam mollis lacus. Sed et condimentum arcu, id molestie tellus. Nulla facilisi. Nam scelerisque vitae justo a convallis. Morbi urna ipsum, placerat quis commodo quis, egestas elementum leo. Donec convallis mollis enim. Aliquam id mi quam. Phasellus nec fringilla elit.</p>
+                                    <p>Nulla mauris tellus, feugiat quis pharetra sed, gravida ac dui. Sed iaculis, metus faucibus elementum tincidunt, turpis mi viverra velit, pellentesque tristique neque mi eget nulla. Proin luctus elementum neque et pharetra.</p>
+                                    <ul>
+                                        <li>100 g of fresh leaves provides.</li>
+                                        <li>Aliquam ac est at augue volutpat elementum.</li>
+                                        <li>Quisque nec enim eget sapien molestie.</li>
+                                        <li>Proin convallis odio volutpat finibus posuere</li>
+                                    </ul>
+                                    <p>Cras et diam maximus, accumsan sapien et, sollicitudin velit. Nulla blandit eros non turpis lobortis iaculis at ut massa.</p>
+                                </div>
+                                <div class="description-tab__wiget wiget">
+                                    <iframe class="wiget__video" src="https://www.youtube.com/embed/ppJaxRhyu9E" title="YouTube video" allowfullscreen></iframe>
+                                    <div class="wiget__items">
+                                        <article class="wiget__item">
+                                            <figure class="wiget__picture">
+                                                <img class="wiget__icon" src="img/wiget/sale.svg" alt="Sale">
+                                            </figure>
+                                            <div class="wiget__body">
+                                                <h5 class="wiget__title">64% Discount</h5>
+                                                <div class="wiget__text">Save your 64% money with us</div>
+                                            </div>
+                                        </article>
+                                        <article class="wiget__item">
+                                            <figure class="wiget__picture">
+                                                <img class="wiget__icon" src="img/wiget/organic.svg" alt="Organic">
+                                            </figure>
+                                            <div class="wiget__body">
+                                                <h5 class="wiget__title">100% Organic</h5>
+                                                <div class="wiget__text">100% Organic Vegetables</div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <section class="product__related related-products">
                 <div class="related-products__container">
+                    <div class="related-products__block-header block-header block-header--margin block-header--center">
+                        <h2 class="block-header__title title">Related Products</h2>
+                    </div>
+                    <div class="related-products__items products">
+                        <article class="products__item item-products">
+                            <div class="item-products__actions">
+                                <a href="#" class="item-products__action item-products__action--icon-favorite"></a>
+                                <a href="#" class="item-products__action item-products__action--icon-eye"></a>
+                            </div>
+                            <a href="#" class="item-products__picture">
+                                <img class="item-products__image" src="img/home/popular-products/image_06.webp" alt="Image">
+                            </a>
+                            <div class="item-products__body">
+                                <div class="item-products__content">
+                                    <h4><a class="item-products__title" href="#">Big Potatoes</a></h4>
+                                    <div class="item-products__prices">
+                                        <div class="item-products__current">$14.99</div>
+                                    </div>
+                                    <form action="#" class="item-products__rating rating">
+                                        <div class="rating__items">
+                                            <input disabled type="radio" value="4" name="rating" class="rating__item">
+                                            <input disabled type="radio" value="3" name="rating" class="rating__item">
+                                            <input disabled checked type="radio" value="5" name="rating" class="rating__item">
+                                            <input disabled type="radio" value="2" name="rating" class="rating__item">
+                                            <input disabled type="radio" value="1" name="rating" class="rating__item">
+                                        </div>
+                                    </form>
+                                </div>
+                                <button class="item-products__add-to-cart add-to-cart"></button>
+                            </div>
+                        </article>
+                        <article class="products__item item-products">
+                            <div class="item-products__actions">
+                                <a href="#" class="item-products__action item-products__action--icon-favorite"></a>
+                                <a href="#" class="item-products__action item-products__action--icon-eye"></a>
+                            </div>
+                            <a href="#" class="item-products__picture">
+                                <img class="item-products__image" src="img/home/popular-products/image_03.webp" alt="Image">
+                            </a>
+                            <div class="item-products__body">
+                                <div class="item-products__content">
+                                    <h4><a class="item-products__title" href="#">Chinese cabbage</a></h4>
+                                    <div class="item-products__prices">
+                                        <div class="item-products__current">$14.99</div>
+                                    </div>
+                                    <form action="#" class="item-products__rating rating">
+                                        <div class="rating__items">
+                                            <input disabled type="radio" value="4" name="rating" class="rating__item">
+                                            <input disabled checked type="radio" value="3" name="rating" class="rating__item">
+                                            <input disabled type="radio" value="5" name="rating" class="rating__item">
+                                            <input disabled type="radio" value="2" name="rating" class="rating__item">
+                                            <input disabled type="radio" value="1" name="rating" class="rating__item">
+                                        </div>
+                                    </form>
+                                </div>
+                                <button class="item-products__add-to-cart add-to-cart"></button>
+                            </div>
+                        </article>
+                        <article class="products__item item-products">
+                            <div class="item-products__labels">
+                                <a href="#" class="item-products__label item-products__label--out">Out of Stock</a>
+                            </div>
+                            <div class="item-products__actions">
+                                <a href="#" class="item-products__action item-products__action--icon-favorite"></a>
+                                <a href="#" class="item-products__action item-products__action--icon-eye"></a>
+                            </div>
+                            <a href="#" class="item-products__picture">
+                                <img class="item-products__image" src="img/home/popular-products/image_07.webp" alt="Image">
+                            </a>
+                            <div class="item-products__body">
+                                <div class="item-products__content">
+                                    <h4><a class="item-products__title" href="#">Corn</a></h4>
+                                    <div class="item-products__prices">
+                                        <div class="item-products__current">$14.99</div>
+                                        <div class="item-products__old">$20.99</div>
+                                    </div>
+                                    <form action="#" class="item-products__rating rating">
+                                        <div class="rating__items">
+                                            <input disabled type="radio" value="4" name="rating" class="rating__item">
+                                            <input disabled type="radio" value="3" name="rating" class="rating__item">
+                                            <input disabled checked type="radio" value="5" name="rating" class="rating__item">
+                                            <input disabled type="radio" value="2" name="rating" class="rating__item">
+                                            <input disabled type="radio" value="1" name="rating" class="rating__item">
+                                        </div>
+                                    </form>
+                                </div>
+                                <button class="item-products__add-to-cart add-to-cart"></button>
+                            </div>
+                        </article>
+                        <article class="products__item item-products">
+                            <div class="item-products__actions">
+                                <a href="#" class="item-products__action item-products__action--icon-favorite"></a>
+                                <a href="#" class="item-products__action item-products__action--icon-eye"></a>
+                            </div>
+                            <a href="#" class="item-products__picture">
+                                <img class="item-products__image" src="img/home/popular-products/image_05.webp" alt="Image">
+                            </a>
+                            <div class="item-products__body">
+                                <div class="item-products__content">
+                                    <h4><a class="item-products__title" href="#">Eggplant</a></h4>
+                                    <div class="item-products__prices">
+                                        <div class="item-products__current">$14.99</div>
+                                    </div>
+                                    <form action="#" class="item-products__rating rating">
+                                        <div class="rating__items">
+                                            <input disabled type="radio" value="4" name="rating" class="rating__item">
+                                            <input disabled type="radio" value="3" name="rating" class="rating__item">
+                                            <input disabled checked type="radio" value="5" name="rating" class="rating__item">
+                                            <input disabled type="radio" value="2" name="rating" class="rating__item">
+                                            <input disabled type="radio" value="1" name="rating" class="rating__item">
+                                        </div>
+                                    </form>
+                                </div>
+                                <button class="item-products__add-to-cart add-to-cart"></button>
+                            </div>
+                        </article>
+                    </div>
                 </div>
             </section>
         </main>

@@ -7,7 +7,7 @@ function checkIsMobile() {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 function windowLoad() {
-    isMobile = window.navigator.userAgentData.mobile
+    isMobile = { Android: function () { return navigator.userAgent.match(/Android/i); }, BlackBerry: function () { return navigator.userAgent.match(/BlackBerry/i); }, iOS: function () { return navigator.userAgent.match(/iPhone|iPad|iPod/i); }, Opera: function () { return navigator.userAgent.match(/Opera Mini/i); }, Windows: function () { return navigator.userAgent.match(/IEMobile/i); }, any: function () { return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()); } }
     isMobile ? document.body.setAttribute('data-touch', '') : null
 
     document.addEventListener('click', documentActions)
@@ -212,6 +212,10 @@ function slidersInit() {
             breakpoints: {
                 320: {
                     slidesPerView: 1.1,
+                    spaceBetween: 10,
+                },
+                550: {
+                    slidesPerView: 1.4,
                     spaceBetween: 15,
                 },
                 768: {
@@ -234,27 +238,20 @@ function slidersInit() {
     if (document.querySelector(`.gallery-product`)) {
 
         const sliderProductThumbs = new Swiper('.thumbs-gallery-product__slider', {
-            direction: "vertical",
             loop: true,
-            slidesPerView: 4,
             spaceBetween: 12,
-            // breakpoints: {
-            //     320: {
-            //         slidesPerView: 1.1,
-            //         spaceBetween: 15,
-            //     },
-            //     768: {
-            //         slidesPerView: 2,
-            //         spaceBetween: 20,
-            //     },
-            //     1050: {
-            //         slidesPerView: 3,
-            //         spaceBetween: 24,
-            //     }
-            // },
             navigation: {
                 nextEl: '.thumbs-gallery-product__arrow--down',
                 prevEl: '.thumbs-gallery-product__arrow--up',
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 3,
+                },
+                550: {
+                    direction: "vertical",
+                    slidesPerView: 4,
+                },
             },
             // для синхронізації краще вимкнути freeMode
             // watchSlidesProgress: true, // дозволяє відслідковувати активний слайд
@@ -263,14 +260,22 @@ function slidersInit() {
             loop: true,
             speed: 300,
             slidesPerView: 1,
-            effect: "fade",
             zoom: {
                 enable: true,
-                maxRatio: 3,
-                panOnMouseMove: false,
+                maxRatio: 5,
+                panOnMouseMove: true,
             },
             thumbs: {
                 swiper: sliderProductThumbs,
+            },
+            breakpoints: {
+                320: {
+                },
+                550: {
+                    slidesPerView: 1,
+                    effect: 'fade',
+
+                },
             },
 
         })
