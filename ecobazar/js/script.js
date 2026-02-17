@@ -11,11 +11,16 @@ function windowLoad() {
     isMobile ? document.body.setAttribute('data-touch', '') : null
 
     document.addEventListener('click', documentActions)
+    document.addEventListener('input', documentActions)
 
     const coundown = document.querySelectorAll('[data-coundown]')
     coundown.length ? initCoundown(coundown) : null
+
     const priceFilter = document.querySelector('.price-filter')
     priceFilter ? priceFilteInit() : null
+
+    const parallaxItems = document.querySelectorAll('[data-parallax]')
+    parallaxItems.length ? parallaxInit(parallaxItems) : null
 
     dynamicAdaptHeader();
     dynamicAdaptFilter()
@@ -86,42 +91,73 @@ function dynamicAdaptFilter() {
 }
 
 function documentActions(e) {
+    const eventType = e.type
     const targetElement = e.target
-    if (isMobile) {
-        if (targetElement.closest('.menu__button')) {
-            const subMenu = targetElement.closest('.menu__button').nextElementSibling
-            if (subMenu) {
-                subMenu.closest('.menu__item').classList.toggle('--active')
-            }
-        } else {
-            const menuItemActive = document.querySelectorAll('.menu__item.--active')
-            if (menuItemActive.length) {
-                menuItemActive.forEach(menuItemActiveItem => {
-                    menuItemActiveItem.classList.remove('--active')
-                });
+    if (eventType === 'click') {
+        if (isMobile) {
+            if (targetElement.closest('.menu__button')) {
+                const subMenu = targetElement.closest('.menu__button').nextElementSibling
+                if (subMenu) {
+                    subMenu.closest('.menu__item').classList.toggle('--active')
+                }
+            } else {
+                const menuItemActive = document.querySelectorAll('.menu__item.--active')
+                if (menuItemActive.length) {
+                    menuItemActive.forEach(menuItemActiveItem => {
+                        menuItemActiveItem.classList.remove('--active')
+                    });
 
+                }
             }
         }
-    }
-    if (targetElement.closest('.icon-menu')) {
-        document.body.classList.toggle('scroll-lock')
-        document.documentElement.classList.toggle('open-menu')
-    }
-    if (targetElement.closest('.header-catalog__button')) {
-        document.documentElement.classList.toggle('open-filter')
-    }
-    if (targetElement.closest('.add-to-cart')) {
-        const button = targetElement.closest('.add-to-cart')
-        const productItem = button.closest('.item-products')
-        const productImage = productItem.querySelector('.item-products__image')
-        const cartHeader = document.querySelector('.cart-header__icon span')
-        flyImage(productImage, cartHeader)
-    }
-    // if (targetElement.closest('.thumbs-gallery-product__slide')) {
-    //     const thumbSlide = targetElement.closest('.thumbs-gallery-product__slide')
-    // }
-}
+        if (targetElement.closest('.icon-menu')) {
+            document.body.classList.toggle('scroll-lock')
+            document.documentElement.classList.toggle('open-menu')
+        }
+        if (targetElement.closest('.header-catalog__button')) {
+            document.documentElement.classList.toggle('open-filter')
+        }
+        if (targetElement.closest('.add-to-cart')) {
+            const button = targetElement.closest('.add-to-cart')
+            const productItem = button.closest('.item-products')
+            const productImage = productItem.querySelector('.item-products__image')
+            const cartHeader = document.querySelector('.cart-header__icon span')
+            flyImage(productImage, cartHeader)
+        }
+        if (targetElement.closest('.quantity__button')) {
+            const button = targetElement.closest('.quantity__button')
+            const quantity = button.parentElement
+            const input = quantity.querySelector('input')
+            let inputValue = +input.value
+            if (button.classList.contains('quantity__button--icon-minus')) {
+                --inputValue
+            } else {
+                ++inputValue
+            }
+            input.value = inputValue <= 0 ? 1 : inputValue
+        }
+        if (targetElement.closest('.tabs-product__button')) {
+            const tabButton = targetElement.closest('.tabs-product__button')
+            if (!tabButton.classList.contains('tabs-product__button--active')) {
+                const activeTab = document.querySelector('.body-tabs-product__item--active')
+                const activeNavTab = document.querySelector('.tabs-product__button--active')
+                activeTab ? activeTab.classList.remove('body-tabs-product__item--active') : null
+                activeNavTab ? activeNavTab.classList.remove('tabs-product__button--active') : null
 
+                const navParent = tabButton.parentElement.parentElement
+                tabButton.classList.add('tabs-product__button--active')
+
+                const activeTabIndex = indexInParent(navParent, tabButton.parentElement)
+                const tabs = document.querySelectorAll('.body-tabs-product__item')
+                tabs[activeTabIndex].classList.add('body-tabs-product__item--active')
+            }
+        }
+    } else if (eventType === 'input') {
+        if (targetElement.classList.contains('quantity__input')) {
+            targetElement.value <= 0 ? targetElement.value = 1 : null
+        }
+    }
+}
 
 function flyImage(productImage, cartHeader) {
     const flyImg = document.createElement('img')
@@ -335,4 +371,54 @@ document.querySelectorAll(".menus-footer__title").forEach(title => {
         list.classList.toggle("active")
     })
 })
+function indexInParent(parent, element) {
+    const array = Array.prototype.slice.call(parent.children);
+    return Array.prototype.indexOf.call(array, element);
+}
+// Паралакс єфект
+function parallaxInit(parallaxItems) {
+    window.addEventListener('scroll', windowScroll)
 
+
+    function windowScroll() {
+        const currentItem = document.querySelectorAll('.parallax')
+
+        if (currentItem.length) {
+            currentItem.forEach(currentItem => {
+                const parallaxItem = currentItem.querySelector('[data-parallax-item]')
+                if (parallaxItem) {
+                    const windowHeight = window.innerHeight + currentItem.offsetHeight
+                    const currentItemHeight = currentItem.offsetHeight
+                    const topPosition = currentItem.getBoundingClientRect().top + currentItemHeight
+                    const way = (topPosition / (windowHeight / 2) * 100) - 100
+                    const diff = (currentItemHeight - parallaxItem.offsetHeight) / parallaxItem.offsetHeight * way
+                    parallaxItem.style.cssText = `translate: 0 ${diff}%`
+                }
+            })
+        }
+    }
+    const options = {
+        root: null,
+        rootMargin: "0px 0px 0px 0px",
+        // Відсоток від розміру об'єкту.
+        // При появі якого спрацьовує подія
+        // Де 0 це будь яка поява
+        // 1 це повна поява об'кта в в'юпорті
+        threshold: 0,
+    }
+    const callback = (entries, observer) => {
+        entries.forEach(entry => {
+            const currentElement = entry.target
+            if (entry.isIntersecting) {
+                currentElement.classList.add('parallax')
+            } else {
+                currentElement.classList.remove('parallax')
+            }
+        })
+    }
+    const observer = new IntersectionObserver(callback, options)
+    parallaxItems.forEach(parallaxItems => {
+        observer.observe(parallaxItems)
+    })
+
+}
